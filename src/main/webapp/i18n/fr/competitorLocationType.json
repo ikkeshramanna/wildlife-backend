@@ -1,0 +1,13 @@
+{
+  "wildlifeApp": {
+    "CompetitorLocationType": {
+      "null": "",
+      "TRACES_IN_NEST": "TRACES_IN_NEST",
+      "IN_NEST": "IN_NEST",
+      "ON_BOX_NEAR_CAVITY": "ON_BOX_NEAR_CAVITY",
+      "ON_NEST_TREE": "ON_NEST_TREE",
+      "IN_CLEARING": "IN_CLEARING",
+      "OUTSIDE_CLEARING": "OUTSIDE_CLEARING"
+    }
+  }
+}

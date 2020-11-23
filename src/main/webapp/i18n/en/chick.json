@@ -1,0 +1,30 @@
+{
+  "wildlifeApp": {
+    "chick": {
+      "home": {
+        "title": "Chicks",
+        "createLabel": "Create a new Chick",
+        "createOrEditLabel": "Create or edit a Chick",
+        "notFound": "No Chicks found"
+      },
+      "created": "A new Chick is created with identifier {{ param }}",
+      "updated": "A Chick is updated with identifier {{ param }}",
+      "deleted": "A Chick is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Chick {{ id }}?"
+      },
+      "detail": {
+        "title": "Chick"
+      },
+      "chickNumber": "Chick Number",
+      "hatchDate": "Hatch Date",
+      "chickStatus": "Chick Status",
+      "chickAge": "Chick Age",
+      "chickActive": "Chick Active",
+      "chickCondition": "Chick Condition",
+      "chickRinged": "Chick Ringed",
+      "bloodSample": "Blood Sample",
+      "eggsAndChick": "Eggs And Chick"
+    }
+  }
+}

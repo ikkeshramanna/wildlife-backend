@@ -1,0 +1,40 @@
+{
+  "wildlifeApp": {
+    "maintenance": {
+      "home": {
+        "title": "Maintenances",
+        "createLabel": "Créer un nouveau Maintenance",
+        "createOrEditLabel": "Créer ou éditer un Maintenance",
+        "notFound": "Aucun Maintenance trouvé"
+      },
+      "created": "Un nouveau Maintenance a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Maintenance avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Maintenance avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Maintenance {{ id }} ?"
+      },
+      "detail": {
+        "title": "Maintenance"
+      },
+      "struts": "Struts",
+      "boxCondition": "Box Condition",
+      "beePlastic": "Bee Plastic",
+      "hatch": "Hatch",
+      "steps": "Steps",
+      "handholds": "Handholds",
+      "treeNeedsReplacing": "Tree Needs Replacing",
+      "boxNeedsReplacing": "Box Needs Replacing",
+      "clearing": "Clearing",
+      "path": "Path",
+      "additionalVisit": "Additional Visit",
+      "drillRequired": "Drill Required",
+      "siteDescription": "Site Description",
+      "bearing": "Bearing",
+      "side": "Side",
+      "treeSpecies": "Tree Species",
+      "height": "Height",
+      "comments": "Comments",
+      "sighting": "Sighting"
+    }
+  }
+}

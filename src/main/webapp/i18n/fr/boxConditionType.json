@@ -1,0 +1,11 @@
+{
+  "wildlifeApp": {
+    "BoxConditionType": {
+      "null": "",
+      "GOOD": "GOOD",
+      "NEEDS_FIXING": "NEEDS_FIXING",
+      "NEEDS_REPLACING_NEXT_SEASON": "NEEDS_REPLACING_NEXT_SEASON",
+      "NEEDS_REPLACING_IMMEDIATELY": "NEEDS_REPLACING_IMMEDIATELY"
+    }
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "name": "Maintenance",
+  "fields": [
+    {
+      "fieldName": "struts",
+      "fieldType": "StrutType",
+      "fieldValues": "GOOD,NEEDS_REPLACING_IMMEDIATELY,NEEDS_REPLACING_END_OF_SEASON,TEMPORARY_FIX_DONE,LONG_TERM_FIX_DONE",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "boxCondition",
+      "fieldType": "BoxConditionType",
+      "fieldValues": "GOOD,NEEDS_FIXING,NEEDS_REPLACING_NEXT_SEASON,NEEDS_REPLACING_IMMEDIATELY",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "beePlastic",
+      "fieldType": "BeePlasticType",
+      "fieldValues": "PRESENT,NEEDS_ADDING",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "hatch",
+      "fieldType": "HatchType",
+      "fieldValues": "GOOD,NEEDS_EYELETS,NEEDS_METAL_BAR,NEEDS_FILING,ADDED_EYELETS,ADDED_METAL_BAR,FILED_HATCH",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "steps",
+      "fieldType": "StepsType",
+      "fieldValues": "ADDED_1,ADDED_2,ADDED_3,ADDED_4,ADDED_5,NEEDS_1,NEEDS_2,NEEDS_3,NEEDS_4,NEEDS_5"
+    },
+    {
+      "fieldName": "handholds",
+      "fieldType": "HandHoldsType",
+      "fieldValues": "ADDED_1,ADDED_2,ADDED_3,NEEDS_1,NEEDS_2,NEEDS_3"
+    },
+    {
+      "fieldName": "treeNeedsReplacing",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "boxNeedsReplacing",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clearing",
+      "fieldType": "ClearingType",
+      "fieldValues": "GOOD,DONE,NEEDS_SOME_CLEARING,NEEDS_BIG_CLEARING",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "path",
+      "fieldType": "PathType",
+      "fieldValues": "GOOD,DONE,NEEDS_SOME_CLEARING,NEEDS_BIG_CLEARING,NEEDS_TAGGING",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "additionalVisit",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "drillRequired",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "siteDescription",
+      "fieldType": "SiteDescriptionType",
+      "fieldValues": "ACCURATE,NOT_GREAT,CHANGED,NEEDS_DOING"
+    },
+    {
+      "fieldName": "bearing",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "side",
+      "fieldType": "SideType",
+      "fieldValues": "RIGHT,LEFT"
+    },
+    {
+      "fieldName": "treeSpecies",
+      "fieldType": "TreeSpeciesType",
+      "fieldValues": "CAN_PAN,CAS_ORI,DEAD,DIO_TES,EUC_TER,EUG_SPP,LAB_GLA,LAB_REV,MIM_SPP,MIM_MAX,PRO_OBT,PRO_SPP,SEC_DUR,SID_EPU,SID_GRA,SID_PUB,SYZ_GLO,SYZ_SPP,SID_SPP,MANGO,UNKNOWN",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "height",
+      "fieldType": "Float",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "sighting",
+      "otherEntityRelationshipName": "maintenance",
+      "relationshipName": "sighting",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201123093201",
+  "entityTableName": "maintenance",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

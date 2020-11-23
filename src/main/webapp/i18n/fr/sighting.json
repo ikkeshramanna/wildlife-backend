@@ -1,0 +1,45 @@
+{
+  "wildlifeApp": {
+    "sighting": {
+      "home": {
+        "title": "Sightings",
+        "createLabel": "Créer un nouveau Sighting",
+        "createOrEditLabel": "Créer ou éditer un Sighting",
+        "notFound": "Aucun Sighting trouvé"
+      },
+      "created": "Un nouveau Sighting a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Sighting avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Sighting avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Sighting {{ id }} ?"
+      },
+      "detail": {
+        "title": "Sighting"
+      },
+      "nestSite": "Nest Site",
+      "area": "Area",
+      "nestType": "Nest Type",
+      "year": "Year",
+      "month": "Month",
+      "date": "Date",
+      "observer": "Observer",
+      "gpsLatitude": "Gps Latitude",
+      "gpsCoordinate": "Gps Coordinate",
+      "locationName": "Location Name",
+      "addDate": "Add Date",
+      "updateDate": "Update Date",
+      "birdsIdentified": "Birds Identified",
+      "eggsAndChick": "Eggs And Chick",
+      "feedingObservation": "Feeding Observation",
+      "nestSiteOverview": "Nest Site Overview",
+      "maintenance": "Maintenance",
+      "ringingMorphs": "Ringing Morphs",
+      "photos": "Photos",
+      "competitors": "Competitors",
+      "observationLocation": "Observation Location",
+      "species": "Species",
+      "employee": "Employee",
+      "taggedAnimal": "Tagged Animal"
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "name": "BirdsIdentified",
+  "fields": [
+    {
+      "fieldName": "seenDuring",
+      "fieldType": "SeenDuringType",
+      "fieldValues": "OPPORTUNISTIC,PRE_SEASON,EGG_CHECK,HATCH_CHECK,RINGING,FLEDGE_CHECK,MAINTENANCE,WATCH",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "BirdType",
+      "fieldValues": "UNKNOWN,SINGLE_BIRD,ONE_OF_BREEDING_PAIR,POTENTIAL_BREEDING_BIRD",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "sex",
+      "fieldType": "SexType",
+      "fieldValues": "MALE,FEMALE,JUVENILE,FLEDGLING,UNKNOWN",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "StatusType",
+      "fieldValues": "MISSING,ASSUMED_DEAD,UNKNOWN",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "birdLocation",
+      "fieldType": "BirdLocationType",
+      "fieldValues": "IN_BOX_CAVITY,IN_BOX_CAVITY_THEN_LEFT,IN_BOX_CAVITY_WHEN_ACCESSING,IN_NEST_SITE_TREE,NEAR_CAVITY,WITHIN_25M_OF_SITE,WITHIN_50M_OF_SITE",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "southing",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "easting",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "colorComboL",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "colorComboR",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "birdIRN",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "birdBehaviour",
+      "otherEntityRelationshipName": "birdsIdentified",
+      "relationshipName": "birdBehaviour",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "sighting",
+      "otherEntityRelationshipName": "birdsIdentified",
+      "relationshipName": "sighting",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201123092201",
+  "entityTableName": "birds_identified",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

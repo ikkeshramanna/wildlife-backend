@@ -1,0 +1,11 @@
+export const enum ReasonForCaptureType {
+  CHICK_RINGING = 'CHICK_RINGING',
+
+  UNRINGED = 'UNRINGED',
+
+  MISSING_RINGS = 'MISSING_RINGS',
+
+  FADED_RINGS = 'FADED_RINGS',
+
+  HEALTH_CHECK = 'HEALTH_CHECK',
+}

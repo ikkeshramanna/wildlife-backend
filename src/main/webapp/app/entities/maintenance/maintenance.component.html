@@ -1,0 +1,95 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="wildlifeApp.maintenance.home.title">Maintenances</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-maintenance" [routerLink]="['/maintenance/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="wildlifeApp.maintenance.home.createLabel">
+            Create a new Maintenance
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="maintenances?.length === 0">
+        <span jhiTranslate="wildlifeApp.maintenance.home.notFound">No maintenances found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="maintenances && maintenances.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.struts">Struts</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.boxCondition">Box Condition</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.beePlastic">Bee Plastic</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.hatch">Hatch</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.steps">Steps</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.handholds">Handholds</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.treeNeedsReplacing">Tree Needs Replacing</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.boxNeedsReplacing">Box Needs Replacing</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.clearing">Clearing</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.path">Path</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.additionalVisit">Additional Visit</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.drillRequired">Drill Required</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.siteDescription">Site Description</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.bearing">Bearing</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.side">Side</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.treeSpecies">Tree Species</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.height">Height</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.maintenance.comments">Comments</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let maintenance of maintenances ;trackBy: trackId">
+                    <td><a [routerLink]="['/maintenance', maintenance.id, 'view']">{{ maintenance.id }}</a></td>
+                    <td jhiTranslate="{{ 'wildlifeApp.StrutType.' + maintenance.struts }}">{{ maintenance.struts }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.BoxConditionType.' + maintenance.boxCondition }}">{{ maintenance.boxCondition }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.BeePlasticType.' + maintenance.beePlastic }}">{{ maintenance.beePlastic }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.HatchType.' + maintenance.hatch }}">{{ maintenance.hatch }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.StepsType.' + maintenance.steps }}">{{ maintenance.steps }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.HandHoldsType.' + maintenance.handholds }}">{{ maintenance.handholds }}</td>
+                    <td>{{ maintenance.treeNeedsReplacing }}</td>
+                    <td>{{ maintenance.boxNeedsReplacing }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.ClearingType.' + maintenance.clearing }}">{{ maintenance.clearing }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.PathType.' + maintenance.path }}">{{ maintenance.path }}</td>
+                    <td>{{ maintenance.additionalVisit }}</td>
+                    <td>{{ maintenance.drillRequired }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.SiteDescriptionType.' + maintenance.siteDescription }}">{{ maintenance.siteDescription }}</td>
+                    <td>{{ maintenance.bearing }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.SideType.' + maintenance.side }}">{{ maintenance.side }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.TreeSpeciesType.' + maintenance.treeSpecies }}">{{ maintenance.treeSpecies }}</td>
+                    <td>{{ maintenance.height }}</td>
+                    <td>{{ maintenance.comments }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/maintenance', maintenance.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/maintenance', maintenance.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(maintenance)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+{
+  "wildlifeApp": {
+    "SexType": {
+      "null": "",
+      "MALE": "MALE",
+      "FEMALE": "FEMALE",
+      "JUVENILE": "JUVENILE",
+      "FLEDGLING": "FLEDGLING",
+      "UNKNOWN": "UNKNOWN"
+    }
+  }
+}

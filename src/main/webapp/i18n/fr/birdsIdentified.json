@@ -1,0 +1,34 @@
+{
+  "wildlifeApp": {
+    "birdsIdentified": {
+      "home": {
+        "title": "BirdsIdentifieds",
+        "createLabel": "Créer un nouveau Birds Identified",
+        "createOrEditLabel": "Créer ou éditer un Birds Identified",
+        "notFound": "Aucun Birds Identified trouvé"
+      },
+      "created": "Un nouveau Birds Identified a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Birds Identified avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Birds Identified avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Birds Identified {{ id }} ?"
+      },
+      "detail": {
+        "title": "Birds Identified"
+      },
+      "seenDuring": "Seen During",
+      "type": "Type",
+      "sex": "Sex",
+      "status": "Status",
+      "birdLocation": "Bird Location",
+      "southing": "Southing",
+      "easting": "Easting",
+      "comments": "Comments",
+      "colorComboL": "Color Combo L",
+      "colorComboR": "Color Combo R",
+      "birdIRN": "Bird IRN",
+      "birdBehaviour": "Bird Behaviour",
+      "sighting": "Sighting"
+    }
+  }
+}

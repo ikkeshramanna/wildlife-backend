@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="observationLocation">
+            <h2><span jhiTranslate="wildlifeApp.observationLocation.detail.title">Observation Location</span> {{ observationLocation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wildlifeApp.observationLocation.name">Name</span></dt>
+                <dd>
+                    <span>{{ observationLocation.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.observationLocation.gpsLatitude">Gps Latitude</span></dt>
+                <dd>
+                    <span>{{ observationLocation.gpsLatitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.observationLocation.gpsCoordinate">Gps Coordinate</span></dt>
+                <dd>
+                    <span>{{ observationLocation.gpsCoordinate }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.observationLocation.locationName">Location Name</span></dt>
+                <dd>
+                    <span>{{ observationLocation.locationName }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.observationLocation.description">Description</span></dt>
+                <dd>
+                    <span>{{ observationLocation.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.observationLocation.addDate">Add Date</span></dt>
+                <dd>
+                    <span>{{ observationLocation.addDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.observationLocation.updateDate">Update Date</span></dt>
+                <dd>
+                    <span>{{ observationLocation.updateDate }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/observation-location', observationLocation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

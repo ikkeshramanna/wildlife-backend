@@ -1,0 +1,75 @@
+{
+  "name": "Competitors",
+  "fields": [
+    {
+      "fieldName": "mkAround",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "noOfIndividuals",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "competitorBehaviour",
+      "fieldType": "CompetitorBehaviourType",
+      "fieldValues": "NO_INTERACTION,CALLING_AT_MK,TRYING_TO_ENTER_MK_NEST,USING_MK_NEST,CHASING_MK,FIGHTING_MK",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "competitorLocation",
+      "fieldType": "CompetitorLocationType",
+      "fieldValues": "TRACES_IN_NEST,IN_NEST,ON_BOX_NEAR_CAVITY,ON_NEST_TREE,IN_CLEARING,OUTSIDE_CLEARING",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "species",
+      "otherEntityRelationshipName": "competitors",
+      "relationshipName": "competitorSpecies",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "competitorImpactOnMk",
+      "otherEntityRelationshipName": "competitors",
+      "relationshipName": "competitorImpactOnMk",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "competitorAction",
+      "otherEntityRelationshipName": "competitors",
+      "relationshipName": "competitorAction",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "sighting",
+      "otherEntityRelationshipName": "competitors",
+      "relationshipName": "sighting",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201123092701",
+  "entityTableName": "competitors",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

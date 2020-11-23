@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="species">
+            <h2><span jhiTranslate="wildlifeApp.species.detail.title">Species</span> {{ species.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wildlifeApp.species.picture">Picture</span></dt>
+                <dd>
+                    <div *ngIf="species.picture">
+                        <a (click)="openFile(species.pictureContentType, species.picture)">
+                            <img [src]="'data:' + species.pictureContentType + ';base64,' + species.picture" style="max-width: 100%;" alt="species image"/>
+                        </a>
+                        {{ species.pictureContentType }}, {{ byteSize(species.picture) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.species.feedingTraitType">Feeding Trait Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.FeedingTraitType.' + species.feedingTraitType }}">{{ species.feedingTraitType }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.species.speciesType">Species Type</span></dt>
+                <dd>
+                    <span>{{ species.speciesType }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.species.commonName">Common Name</span></dt>
+                <dd>
+                    <span>{{ species.commonName }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.species.latinName">Latin Name</span></dt>
+                <dd>
+                    <span>{{ species.latinName }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.species.description">Description</span></dt>
+                <dd>
+                    <span>{{ species.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.species.isIndigenous">Is Indigenous</span></dt>
+                <dd>
+                    <span>{{ species.isIndigenous }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.species.addDate">Add Date</span></dt>
+                <dd>
+                    <span>{{ species.addDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.species.updateDate">Update Date</span></dt>
+                <dd>
+                    <span>{{ species.updateDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.species.speciesCategory">Species Category</span></dt>
+                <dd>
+                    <div *ngIf="species.speciesCategory">
+                        <a [routerLink]="['/species-category', species.speciesCategory?.id, 'view']">{{ species.speciesCategory?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/species', species.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

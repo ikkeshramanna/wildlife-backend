@@ -1,0 +1,105 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-nest-site-overview-heading" jhiTranslate="wildlifeApp.nestSiteOverview.home.createOrEditLabel">Create or edit a Nest Site Overview</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.nestSiteOverview.numberPeople" for="field_numberPeople">Number People</label>
+                    <input type="number" class="form-control" name="numberPeople" id="field_numberPeople"
+                           formControlName="numberPeople"/>
+                    <div *ngIf="editForm.get('numberPeople')!.invalid && (editForm.get('numberPeople')!.dirty || editForm.get('numberPeople')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numberPeople')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('numberPeople')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.nestSiteOverview.purposeOfVisit" for="field_purposeOfVisit">Purpose Of Visit</label>
+                    <select class="form-control" name="purposeOfVisit" formControlName="purposeOfVisit" id="field_purposeOfVisit">
+                        <option value="OPPORTUNISTIC">{{ 'wildlifeApp.VisitPurposeType.OPPORTUNISTIC' | translate }}</option>
+                        <option value="PRE_SEASON">{{ 'wildlifeApp.VisitPurposeType.PRE_SEASON' | translate }}</option>
+                        <option value="EGG_CHECK">{{ 'wildlifeApp.VisitPurposeType.EGG_CHECK' | translate }}</option>
+                        <option value="HATCH_CHECK">{{ 'wildlifeApp.VisitPurposeType.HATCH_CHECK' | translate }}</option>
+                        <option value="RINGING">{{ 'wildlifeApp.VisitPurposeType.RINGING' | translate }}</option>
+                        <option value="MAINTENANCE">{{ 'wildlifeApp.VisitPurposeType.MAINTENANCE' | translate }}</option>
+                        <option value="IDENTIFYING_PAIR">{{ 'wildlifeApp.VisitPurposeType.IDENTIFYING_PAIR' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('purposeOfVisit')!.invalid && (editForm.get('purposeOfVisit')!.dirty || editForm.get('purposeOfVisit')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('purposeOfVisit')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.nestSiteOverview.signsOfUse" for="field_signsOfUse">Signs Of Use</label>
+                    <select class="form-control" name="signsOfUse" formControlName="signsOfUse" id="field_signsOfUse">
+                        <option value="MUTES">{{ 'wildlifeApp.UseSignType.MUTES' | translate }}</option>
+                        <option value="SCRAPE">{{ 'wildlifeApp.UseSignType.SCRAPE' | translate }}</option>
+                        <option value="SCRAPE_FLATTENED">{{ 'wildlifeApp.UseSignType.SCRAPE_FLATTENED' | translate }}</option>
+                        <option value="RECENT_SCRAPE">{{ 'wildlifeApp.UseSignType.RECENT_SCRAPE' | translate }}</option>
+                        <option value="DOWN_FEATHERS">{{ 'wildlifeApp.UseSignType.DOWN_FEATHERS' | translate }}</option>
+                        <option value="FEATHERS">{{ 'wildlifeApp.UseSignType.FEATHERS' | translate }}</option>
+                        <option value="PELLETS">{{ 'wildlifeApp.UseSignType.PELLETS' | translate }}</option>
+                        <option value="MULTIPLE_SIGNS">{{ 'wildlifeApp.UseSignType.MULTIPLE_SIGNS' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('signsOfUse')!.invalid && (editForm.get('signsOfUse')!.dirty || editForm.get('signsOfUse')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('signsOfUse')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.nestSiteOverview.nestingSubstrate" for="field_nestingSubstrate">Nesting Substrate</label>
+                    <input type="text" class="form-control" name="nestingSubstrate" id="field_nestingSubstrate"
+                           formControlName="nestingSubstrate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.nestSiteOverview.maintenanceDone" for="field_maintenanceDone">Maintenance Done</label>
+                    <input type="text" class="form-control" name="maintenanceDone" id="field_maintenanceDone"
+                           formControlName="maintenanceDone"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.nestSiteOverview.maintenanceRequired" for="field_maintenanceRequired">Maintenance Required</label>
+                    <input type="text" class="form-control" name="maintenanceRequired" id="field_maintenanceRequired"
+                           formControlName="maintenanceRequired"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.nestSiteOverview.comments" for="field_comments">Comments</label>
+                    <input type="text" class="form-control" name="comments" id="field_comments"
+                           formControlName="comments"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

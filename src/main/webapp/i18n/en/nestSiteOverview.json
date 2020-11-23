@@ -1,0 +1,29 @@
+{
+  "wildlifeApp": {
+    "nestSiteOverview": {
+      "home": {
+        "title": "Nest Site Overviews",
+        "createLabel": "Create a new Nest Site Overview",
+        "createOrEditLabel": "Create or edit a Nest Site Overview",
+        "notFound": "No Nest Site Overviews found"
+      },
+      "created": "A new Nest Site Overview is created with identifier {{ param }}",
+      "updated": "A Nest Site Overview is updated with identifier {{ param }}",
+      "deleted": "A Nest Site Overview is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Nest Site Overview {{ id }}?"
+      },
+      "detail": {
+        "title": "Nest Site Overview"
+      },
+      "numberPeople": "Number People",
+      "purposeOfVisit": "Purpose Of Visit",
+      "signsOfUse": "Signs Of Use",
+      "nestingSubstrate": "Nesting Substrate",
+      "maintenanceDone": "Maintenance Done",
+      "maintenanceRequired": "Maintenance Required",
+      "comments": "Comments",
+      "sighting": "Sighting"
+    }
+  }
+}

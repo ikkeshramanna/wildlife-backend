@@ -1,0 +1,10 @@
+{
+  "wildlifeApp": {
+    "WindType": {
+      "null": "",
+      "CALM": "CALM",
+      "BREEZE": "BREEZE",
+      "WINDY": "WINDY"
+    }
+  }
+}

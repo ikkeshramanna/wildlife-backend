@@ -1,0 +1,10 @@
+{
+  "wildlifeApp": {
+    "StatusType": {
+      "null": "",
+      "MISSING": "MISSING",
+      "ASSUMED_DEAD": "ASSUMED_DEAD",
+      "UNKNOWN": "UNKNOWN"
+    }
+  }
+}

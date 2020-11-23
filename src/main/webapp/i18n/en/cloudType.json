@@ -1,0 +1,10 @@
+{
+  "wildlifeApp": {
+    "CloudType": {
+      "null": "",
+      "OVERCAST": "OVERCAST",
+      "CLOUDY": "CLOUDY",
+      "CLEAR": "CLEAR"
+    }
+  }
+}

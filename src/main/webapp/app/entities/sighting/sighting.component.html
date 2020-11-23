@@ -1,0 +1,143 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="wildlifeApp.sighting.home.title">Sightings</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sighting" [routerLink]="['/sighting/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="wildlifeApp.sighting.home.createLabel">
+            Create a new Sighting
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="sightings?.length === 0">
+        <span jhiTranslate="wildlifeApp.sighting.home.notFound">No sightings found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="sightings && sightings.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.nestSite">Nest Site</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.area">Area</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.nestType">Nest Type</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.year">Year</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.month">Month</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.date">Date</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.observer">Observer</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.gpsLatitude">Gps Latitude</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.gpsCoordinate">Gps Coordinate</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.locationName">Location Name</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.addDate">Add Date</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.updateDate">Update Date</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.birdsIdentified">Birds Identified</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.eggsAndChick">Eggs And Chick</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.feedingObservation">Feeding Observation</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.nestSiteOverview">Nest Site Overview</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.maintenance">Maintenance</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.ringingMorphs">Ringing Morphs</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.observationLocation">Observation Location</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.species">Species</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.employee">Employee</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.sighting.taggedAnimal">Tagged Animal</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sighting of sightings ;trackBy: trackId">
+                    <td><a [routerLink]="['/sighting', sighting.id, 'view']">{{ sighting.id }}</a></td>
+                    <td jhiTranslate="{{ 'wildlifeApp.NestSiteType.' + sighting.nestSite }}">{{ sighting.nestSite }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.AreaType.' + sighting.area }}">{{ sighting.area }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.NestType.' + sighting.nestType }}">{{ sighting.nestType }}</td>
+                    <td>{{ sighting.year }}</td>
+                    <td>{{ sighting.month }}</td>
+                    <td>{{ sighting.date | date:'mediumDate' }}</td>
+                    <td>{{ sighting.observer }}</td>
+                    <td>{{ sighting.gpsLatitude }}</td>
+                    <td>{{ sighting.gpsCoordinate }}</td>
+                    <td>{{ sighting.locationName }}</td>
+                    <td>{{ sighting.addDate | date:'mediumDate' }}</td>
+                    <td>{{ sighting.updateDate | date:'mediumDate' }}</td>
+                    <td>
+                        <div *ngIf="sighting.birdsIdentified">
+                            <a [routerLink]="['/birds-identified', sighting.birdsIdentified?.id, 'view']" >{{ sighting.birdsIdentified?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="sighting.eggsAndChick">
+                            <a [routerLink]="['/eggs-and-chick', sighting.eggsAndChick?.id, 'view']" >{{ sighting.eggsAndChick?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="sighting.feedingObservation">
+                            <a [routerLink]="['/feeding-observation', sighting.feedingObservation?.id, 'view']" >{{ sighting.feedingObservation?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="sighting.nestSiteOverview">
+                            <a [routerLink]="['/nest-site-overview', sighting.nestSiteOverview?.id, 'view']" >{{ sighting.nestSiteOverview?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="sighting.maintenance">
+                            <a [routerLink]="['/maintenance', sighting.maintenance?.id, 'view']" >{{ sighting.maintenance?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="sighting.ringingMorphs">
+                            <a [routerLink]="['/ringing-morphs', sighting.ringingMorphs?.id, 'view']" >{{ sighting.ringingMorphs?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="sighting.observationLocation">
+                            <a [routerLink]="['/observation-location', sighting.observationLocation?.id, 'view']" >{{ sighting.observationLocation?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="sighting.species">
+                            <a [routerLink]="['/species', sighting.species?.id, 'view']" >{{ sighting.species?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="sighting.employee">
+                            <a [routerLink]="['/employee', sighting.employee?.id, 'view']" >{{ sighting.employee?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="sighting.taggedAnimal">
+                            <a [routerLink]="['/tagged-animal', sighting.taggedAnimal?.id, 'view']" >{{ sighting.taggedAnimal?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/sighting', sighting.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/sighting', sighting.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(sighting)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

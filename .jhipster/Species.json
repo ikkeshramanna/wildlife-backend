@@ -1,0 +1,101 @@
+{
+  "name": "Species",
+  "fields": [
+    {
+      "fieldName": "picture",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "feedingTraitType",
+      "fieldType": "FeedingTraitType",
+      "fieldValues": "OMNIVORE,CARNIVORE,HERBIVORE",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "speciesType",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "commonName",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "latinName",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "isIndigenous",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "addDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "updateDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "taggedAnimal",
+      "otherEntityRelationshipName": "species",
+      "relationshipName": "taggedAnimal"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "speciesCategory",
+      "otherEntityRelationshipName": "species",
+      "relationshipName": "speciesCategory",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "species",
+      "relationshipName": "country",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201123093501",
+  "entityTableName": "species",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

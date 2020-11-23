@@ -1,0 +1,10 @@
+{
+  "wildlifeApp": {
+    "RainType": {
+      "null": "",
+      "HEAVY": "HEAVY",
+      "LIGHT": "LIGHT",
+      "NO": "NO"
+    }
+  }
+}

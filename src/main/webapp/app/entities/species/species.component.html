@@ -1,0 +1,88 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="wildlifeApp.species.home.title">Species</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-species" [routerLink]="['/species/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="wildlifeApp.species.home.createLabel">
+            Create a new Species
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="species?.length === 0">
+        <span jhiTranslate="wildlifeApp.species.home.notFound">No species found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="species && species.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.species.picture">Picture</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.species.feedingTraitType">Feeding Trait Type</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.species.speciesType">Species Type</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.species.commonName">Common Name</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.species.latinName">Latin Name</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.species.description">Description</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.species.isIndigenous">Is Indigenous</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.species.addDate">Add Date</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.species.updateDate">Update Date</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.species.speciesCategory">Species Category</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let species of species ;trackBy: trackId">
+                    <td><a [routerLink]="['/species', species.id, 'view']">{{ species.id }}</a></td>
+                    <td>
+                        <a *ngIf="species.picture" (click)="openFile(species.pictureContentType, species.picture)">
+                            <img [src]="'data:' + species.pictureContentType + ';base64,' + species.picture" style="max-height: 30px;" alt="species image"/>
+                        </a>
+                        <span *ngIf="species.picture">{{ species.pictureContentType }}, {{ byteSize(species.picture) }}</span>
+                    </td>
+                    <td jhiTranslate="{{ 'wildlifeApp.FeedingTraitType.' + species.feedingTraitType }}">{{ species.feedingTraitType }}</td>
+                    <td>{{ species.speciesType }}</td>
+                    <td>{{ species.commonName }}</td>
+                    <td>{{ species.latinName }}</td>
+                    <td>{{ species.description }}</td>
+                    <td>{{ species.isIndigenous }}</td>
+                    <td>{{ species.addDate | date:'mediumDate' }}</td>
+                    <td>{{ species.updateDate | date:'mediumDate' }}</td>
+                    <td>
+                        <div *ngIf="species.speciesCategory">
+                            <a [routerLink]="['/species-category', species.speciesCategory?.id, 'view']" >{{ species.speciesCategory?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/species', species.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/species', species.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(species)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

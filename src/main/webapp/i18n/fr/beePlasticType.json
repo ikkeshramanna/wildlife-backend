@@ -1,0 +1,9 @@
+{
+  "wildlifeApp": {
+    "BeePlasticType": {
+      "null": "",
+      "PRESENT": "PRESENT",
+      "NEEDS_ADDING": "NEEDS_ADDING"
+    }
+  }
+}

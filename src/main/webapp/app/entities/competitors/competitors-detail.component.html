@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="competitors">
+            <h2><span jhiTranslate="wildlifeApp.competitors.detail.title">Competitors</span> {{ competitors.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wildlifeApp.competitors.mkAround">Mk Around</span></dt>
+                <dd>
+                    <span>{{ competitors.mkAround }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.competitors.noOfIndividuals">No Of Individuals</span></dt>
+                <dd>
+                    <span>{{ competitors.noOfIndividuals }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.competitors.competitorBehaviour">Competitor Behaviour</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.CompetitorBehaviourType.' + competitors.competitorBehaviour }}">{{ competitors.competitorBehaviour }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.competitors.competitorLocation">Competitor Location</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.CompetitorLocationType.' + competitors.competitorLocation }}">{{ competitors.competitorLocation }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.competitors.competitorSpecies">Competitor Species</span></dt>
+                <dd>
+                    <div *ngIf="competitors.competitorSpecies">
+                        <a [routerLink]="['/species', competitors.competitorSpecies?.id, 'view']">{{ competitors.competitorSpecies?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.competitors.competitorImpactOnMk">Competitor Impact On Mk</span></dt>
+                <dd>
+                    <span *ngFor="let competitorImpactOnMk of competitors.competitorImpactOnMks; let last = last">
+                        <a [routerLink]="['/competitor-impact-on-mk', competitorImpactOnMk?.id, 'view']">{{ competitorImpactOnMk.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.competitors.competitorAction">Competitor Action</span></dt>
+                <dd>
+                    <span *ngFor="let competitorAction of competitors.competitorActions; let last = last">
+                        <a [routerLink]="['/competitor-action', competitorAction?.id, 'view']">{{ competitorAction.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.competitors.sighting">Sighting</span></dt>
+                <dd>
+                    <div *ngIf="competitors.sighting">
+                        <a [routerLink]="['/sighting', competitors.sighting?.id, 'view']">{{ competitors.sighting?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/competitors', competitors.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

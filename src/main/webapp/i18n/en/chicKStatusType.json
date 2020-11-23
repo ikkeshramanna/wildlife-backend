@@ -1,0 +1,11 @@
+{
+  "wildlifeApp": {
+    "ChicKStatusType": {
+      "null": "",
+      "ALIVE": "ALIVE",
+      "FLEDGED": "FLEDGED",
+      "DEAD": "DEAD",
+      "UNKNOWN": "UNKNOWN"
+    }
+  }
+}

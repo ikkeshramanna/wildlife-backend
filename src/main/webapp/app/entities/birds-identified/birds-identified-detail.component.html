@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="birdsIdentified">
+            <h2><span jhiTranslate="wildlifeApp.birdsIdentified.detail.title">Birds Identified</span> {{ birdsIdentified.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wildlifeApp.birdsIdentified.seenDuring">Seen During</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.SeenDuringType.' + birdsIdentified.seenDuring }}">{{ birdsIdentified.seenDuring }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.birdsIdentified.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.BirdType.' + birdsIdentified.type }}">{{ birdsIdentified.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.birdsIdentified.sex">Sex</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.SexType.' + birdsIdentified.sex }}">{{ birdsIdentified.sex }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.birdsIdentified.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.StatusType.' + birdsIdentified.status }}">{{ birdsIdentified.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.birdsIdentified.birdLocation">Bird Location</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.BirdLocationType.' + birdsIdentified.birdLocation }}">{{ birdsIdentified.birdLocation }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.birdsIdentified.southing">Southing</span></dt>
+                <dd>
+                    <span>{{ birdsIdentified.southing }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.birdsIdentified.easting">Easting</span></dt>
+                <dd>
+                    <span>{{ birdsIdentified.easting }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.birdsIdentified.comments">Comments</span></dt>
+                <dd>
+                    <span>{{ birdsIdentified.comments }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.birdsIdentified.colorComboL">Color Combo L</span></dt>
+                <dd>
+                    <span>{{ birdsIdentified.colorComboL }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.birdsIdentified.colorComboR">Color Combo R</span></dt>
+                <dd>
+                    <span>{{ birdsIdentified.colorComboR }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.birdsIdentified.birdIRN">Bird IRN</span></dt>
+                <dd>
+                    <span>{{ birdsIdentified.birdIRN }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.birdsIdentified.birdBehaviour">Bird Behaviour</span></dt>
+                <dd>
+                    <span *ngFor="let birdBehaviour of birdsIdentified.birdBehaviours; let last = last">
+                        <a [routerLink]="['/bird-behaviour', birdBehaviour?.id, 'view']">{{ birdBehaviour.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/birds-identified', birdsIdentified.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,159 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-species-heading" jhiTranslate="wildlifeApp.species.home.createOrEditLabel">Create or edit a Species</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.species.picture" for="field_picture">Picture</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('pictureContentType')!.value + ';base64,' + editForm.get('picture')!.value" style="max-height: 100px;" *ngIf="editForm.get('picture')!.value" alt="species image"/>
+                        <div *ngIf="editForm.get('picture')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('pictureContentType')!.value }}, {{ byteSize(editForm.get('picture')!.value) }}</span>
+                            <button type="button" (click)="clearInputImage('picture', 'pictureContentType', 'file_picture')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_picture" (change)="setFileData($event, 'picture', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="picture" id="field_picture"
+                           formControlName="picture"/>
+                    <input type="hidden" class="form-control" name="pictureContentType" id="field_pictureContentType"
+                           formControlName="pictureContentType" />
+                    <div *ngIf="editForm.get('picture')!.invalid && (editForm.get('picture')!.dirty || editForm.get('picture')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('picture')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.species.feedingTraitType" for="field_feedingTraitType">Feeding Trait Type</label>
+                    <select class="form-control" name="feedingTraitType" formControlName="feedingTraitType" id="field_feedingTraitType">
+                        <option value="OMNIVORE">{{ 'wildlifeApp.FeedingTraitType.OMNIVORE' | translate }}</option>
+                        <option value="CARNIVORE">{{ 'wildlifeApp.FeedingTraitType.CARNIVORE' | translate }}</option>
+                        <option value="HERBIVORE">{{ 'wildlifeApp.FeedingTraitType.HERBIVORE' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('feedingTraitType')!.invalid && (editForm.get('feedingTraitType')!.dirty || editForm.get('feedingTraitType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('feedingTraitType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.species.speciesType" for="field_speciesType">Species Type</label>
+                    <input type="text" class="form-control" name="speciesType" id="field_speciesType"
+                           formControlName="speciesType"/>
+                    <div *ngIf="editForm.get('speciesType')!.invalid && (editForm.get('speciesType')!.dirty || editForm.get('speciesType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('speciesType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.species.commonName" for="field_commonName">Common Name</label>
+                    <input type="text" class="form-control" name="commonName" id="field_commonName"
+                           formControlName="commonName"/>
+                    <div *ngIf="editForm.get('commonName')!.invalid && (editForm.get('commonName')!.dirty || editForm.get('commonName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('commonName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.species.latinName" for="field_latinName">Latin Name</label>
+                    <input type="text" class="form-control" name="latinName" id="field_latinName"
+                           formControlName="latinName"/>
+                    <div *ngIf="editForm.get('latinName')!.invalid && (editForm.get('latinName')!.dirty || editForm.get('latinName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('latinName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.species.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                    <div *ngIf="editForm.get('description')!.invalid && (editForm.get('description')!.dirty || editForm.get('description')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('description')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.species.isIndigenous" for="field_isIndigenous">Is Indigenous</label>
+                    <input type="checkbox" class="form-control" name="isIndigenous" id="field_isIndigenous"
+                           formControlName="isIndigenous"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.species.addDate" for="field_addDate">Add Date</label>
+                    <div class="input-group">
+                        <input id="field_addDate" type="text" class="form-control" name="addDate" ngbDatepicker #addDateDp="ngbDatepicker" formControlName="addDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="addDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('addDate')!.invalid && (editForm.get('addDate')!.dirty || editForm.get('addDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('addDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.species.updateDate" for="field_updateDate">Update Date</label>
+                    <div class="input-group">
+                        <input id="field_updateDate" type="text" class="form-control" name="updateDate" ngbDatepicker #updateDateDp="ngbDatepicker" formControlName="updateDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="updateDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('updateDate')!.invalid && (editForm.get('updateDate')!.dirty || editForm.get('updateDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('updateDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.species.speciesCategory" for="field_speciesCategory">Species Category</label>
+                    <select class="form-control" id="field_speciesCategory" name="speciesCategory" formControlName="speciesCategory">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="speciesCategoryOption.id === editForm.get('speciesCategory')!.value?.id ? editForm.get('speciesCategory')!.value : speciesCategoryOption" *ngFor="let speciesCategoryOption of speciescategories; trackBy: trackById">{{ speciesCategoryOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

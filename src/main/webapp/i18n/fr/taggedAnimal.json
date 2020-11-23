@@ -1,0 +1,31 @@
+{
+  "wildlifeApp": {
+    "taggedAnimal": {
+      "home": {
+        "title": "TaggedAnimals",
+        "createLabel": "Créer un nouveau Tagged Animal",
+        "createOrEditLabel": "Créer ou éditer un Tagged Animal",
+        "notFound": "Aucun Tagged Animal trouvé"
+      },
+      "created": "Un nouveau Tagged Animal a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tagged Animal avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tagged Animal avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Tagged Animal {{ id }} ?"
+      },
+      "detail": {
+        "title": "Tagged Animal"
+      },
+      "name": "Name",
+      "dateOfBirth": "Date Of Birth",
+      "dateOfTagging": "Date Of Tagging",
+      "physicalTraits": "Physical Traits",
+      "tagType": "Tag Type",
+      "dateTime": "Date Time",
+      "sexType": "Sex Type",
+      "updateDate": "Update Date",
+      "taggedAnimal": "Tagged Animal",
+      "species": "Species"
+    }
+  }
+}

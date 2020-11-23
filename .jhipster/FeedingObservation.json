@@ -1,0 +1,114 @@
+{
+  "name": "FeedingObservation",
+  "fields": [
+    {
+      "fieldName": "noFieldWorkers",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "FeedingObservationType",
+      "fieldValues": "FOOD_ITEM_PASS,NEST_SITE_REMAINS",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "breedingAttempt",
+      "fieldType": "BreedAttemptType",
+      "fieldValues": "YES,NO,UNKNOWN"
+    },
+    {
+      "fieldName": "breedingStage",
+      "fieldType": "BreedingStageType",
+      "fieldValues": "EGG,CHICK,FLEDGED,UNKNOWN",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "breedingOutcome",
+      "fieldType": "BreedingOutcomeType",
+      "fieldValues": "ONGOING,FLEDGED,FLEDGED_EGG_STAGE,FLEDGED_CHICK_STAGE,UNKNOWN"
+    },
+    {
+      "fieldName": "preyItem",
+      "fieldType": "PreyItemType",
+      "fieldValues": "UNKNOWN,GECKO,AGAMID,BIRD,SHREW,RAT,INSECT",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "preySpecies",
+      "fieldType": "PreySpeciesType",
+      "fieldValues": "UNKNOWN,PHELSUMA_SPP,PHELSUMA_CEPEDIANA,PHELSUMA_ORNATA,PHELSUMA_GUMBEAUI,PHELSUMA_ROSAGULARIS,HOUSE_GECKO,AGAMID_LIZARD,GREY_WHITE_EYE,MADAGASCAR_FODY,RED_WHISKERED_BULBUL,WAXBILL,ZEBRA_DOVE,YELLOW_FRONTED_CANARY,ASIAN_MUSK_SHREW,BLACK_RAT,BROWN_RAT,DRAGONFLY,STICK_INSECT,CICADA",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "time",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cloud",
+      "fieldType": "CloudType",
+      "fieldValues": "OVERCAST,CLOUDY,CLEAR",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "wind",
+      "fieldType": "WindType",
+      "fieldValues": "CALM,BREEZE,WINDY",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "rain",
+      "fieldType": "RainType",
+      "fieldValues": "HEAVY,LIGHT,NO",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "outcome",
+      "fieldType": "FeedingObservationOutcomeType",
+      "fieldValues": "UNKNOWN,REMAINS_IN_NEST_SITE,REMAINS_NEAR_NEST_SITE,PASSED_TO_FEMALE,EATEN_BY_FEMALE,CACHED_BY_MALE,CACHED_BY_FEMALE,EATEN_BY_MALE,PASSED_TO_CHICKS,PASSED_TO_FLEDGLINGS,NOT_DELIVERED_TO_CHICKS_ACCESSING,NOT_DELIVERED_TO_CHICKS_RINGING,NOT_DELIVERED_TO_FEMALE_ACCESSING",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "comment",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "sighting",
+      "otherEntityRelationshipName": "feedingObservation",
+      "relationshipName": "sighting",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201123093001",
+  "entityTableName": "feeding_observation",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

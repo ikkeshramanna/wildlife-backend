@@ -1,0 +1,35 @@
+{
+  "wildlifeApp": {
+    "feedingObservation": {
+      "home": {
+        "title": "FeedingObservations",
+        "createLabel": "Créer un nouveau Feeding Observation",
+        "createOrEditLabel": "Créer ou éditer un Feeding Observation",
+        "notFound": "Aucun Feeding Observation trouvé"
+      },
+      "created": "Un nouveau Feeding Observation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Feeding Observation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Feeding Observation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Feeding Observation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Feeding Observation"
+      },
+      "noFieldWorkers": "No Field Workers",
+      "type": "Type",
+      "breedingAttempt": "Breeding Attempt",
+      "breedingStage": "Breeding Stage",
+      "breedingOutcome": "Breeding Outcome",
+      "preyItem": "Prey Item",
+      "preySpecies": "Prey Species",
+      "time": "Time",
+      "cloud": "Cloud",
+      "wind": "Wind",
+      "rain": "Rain",
+      "outcome": "Outcome",
+      "comment": "Comment",
+      "sighting": "Sighting"
+    }
+  }
+}

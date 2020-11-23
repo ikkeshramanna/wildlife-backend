@@ -1,0 +1,46 @@
+{
+  "name": "Photo",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "addDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updateDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "sighting",
+      "otherEntityRelationshipName": "photos",
+      "relationshipName": "sighting",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201123093701",
+  "entityTableName": "photo",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

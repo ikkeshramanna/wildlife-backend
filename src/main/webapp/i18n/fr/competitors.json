@@ -1,0 +1,29 @@
+{
+  "wildlifeApp": {
+    "competitors": {
+      "home": {
+        "title": "Competitors",
+        "createLabel": "Créer un nouveau Competitors",
+        "createOrEditLabel": "Créer ou éditer un Competitors",
+        "notFound": "Aucun Competitors trouvé"
+      },
+      "created": "Un nouveau Competitors a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Competitors avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Competitors avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Competitors {{ id }} ?"
+      },
+      "detail": {
+        "title": "Competitors"
+      },
+      "mkAround": "Mk Around",
+      "noOfIndividuals": "No Of Individuals",
+      "competitorBehaviour": "Competitor Behaviour",
+      "competitorLocation": "Competitor Location",
+      "competitorSpecies": "Competitor Species",
+      "competitorImpactOnMk": "Competitor Impact On Mk",
+      "competitorAction": "Competitor Action",
+      "sighting": "Sighting"
+    }
+  }
+}

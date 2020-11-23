@@ -1,0 +1,114 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-competitors-heading" jhiTranslate="wildlifeApp.competitors.home.createOrEditLabel">Create or edit a Competitors</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.competitors.mkAround" for="field_mkAround">Mk Around</label>
+                    <input type="text" class="form-control" name="mkAround" id="field_mkAround"
+                           formControlName="mkAround"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.competitors.noOfIndividuals" for="field_noOfIndividuals">No Of Individuals</label>
+                    <input type="number" class="form-control" name="noOfIndividuals" id="field_noOfIndividuals"
+                           formControlName="noOfIndividuals"/>
+                    <div *ngIf="editForm.get('noOfIndividuals')!.invalid && (editForm.get('noOfIndividuals')!.dirty || editForm.get('noOfIndividuals')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('noOfIndividuals')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('noOfIndividuals')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.competitors.competitorBehaviour" for="field_competitorBehaviour">Competitor Behaviour</label>
+                    <select class="form-control" name="competitorBehaviour" formControlName="competitorBehaviour" id="field_competitorBehaviour">
+                        <option value="NO_INTERACTION">{{ 'wildlifeApp.CompetitorBehaviourType.NO_INTERACTION' | translate }}</option>
+                        <option value="CALLING_AT_MK">{{ 'wildlifeApp.CompetitorBehaviourType.CALLING_AT_MK' | translate }}</option>
+                        <option value="TRYING_TO_ENTER_MK_NEST">{{ 'wildlifeApp.CompetitorBehaviourType.TRYING_TO_ENTER_MK_NEST' | translate }}</option>
+                        <option value="USING_MK_NEST">{{ 'wildlifeApp.CompetitorBehaviourType.USING_MK_NEST' | translate }}</option>
+                        <option value="CHASING_MK">{{ 'wildlifeApp.CompetitorBehaviourType.CHASING_MK' | translate }}</option>
+                        <option value="FIGHTING_MK">{{ 'wildlifeApp.CompetitorBehaviourType.FIGHTING_MK' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('competitorBehaviour')!.invalid && (editForm.get('competitorBehaviour')!.dirty || editForm.get('competitorBehaviour')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('competitorBehaviour')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.competitors.competitorLocation" for="field_competitorLocation">Competitor Location</label>
+                    <select class="form-control" name="competitorLocation" formControlName="competitorLocation" id="field_competitorLocation">
+                        <option value="TRACES_IN_NEST">{{ 'wildlifeApp.CompetitorLocationType.TRACES_IN_NEST' | translate }}</option>
+                        <option value="IN_NEST">{{ 'wildlifeApp.CompetitorLocationType.IN_NEST' | translate }}</option>
+                        <option value="ON_BOX_NEAR_CAVITY">{{ 'wildlifeApp.CompetitorLocationType.ON_BOX_NEAR_CAVITY' | translate }}</option>
+                        <option value="ON_NEST_TREE">{{ 'wildlifeApp.CompetitorLocationType.ON_NEST_TREE' | translate }}</option>
+                        <option value="IN_CLEARING">{{ 'wildlifeApp.CompetitorLocationType.IN_CLEARING' | translate }}</option>
+                        <option value="OUTSIDE_CLEARING">{{ 'wildlifeApp.CompetitorLocationType.OUTSIDE_CLEARING' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('competitorLocation')!.invalid && (editForm.get('competitorLocation')!.dirty || editForm.get('competitorLocation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('competitorLocation')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.competitors.competitorSpecies" for="field_competitorSpecies">Competitor Species</label>
+                    <select class="form-control" id="field_competitorSpecies" name="competitorSpecies" formControlName="competitorSpecies">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="speciesOption.id === editForm.get('competitorSpecies')!.value?.id ? editForm.get('competitorSpecies')!.value : speciesOption" *ngFor="let speciesOption of species; trackBy: trackById">{{ speciesOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="wildlifeApp.competitors.competitorImpactOnMk" for="field_competitorImpactOnMks">Competitor Impact On Mk</label>
+                    <select class="form-control" id="field_competitorImpactOnMks" multiple name="competitorImpactOnMks" formControlName="competitorImpactOnMks">
+                        <option [ngValue]="getSelected(editForm.get('competitorImpactOnMks')!.value, competitorImpactOnMkOption)" *ngFor="let competitorImpactOnMkOption of competitorimpactonmks; trackBy: trackById">{{ competitorImpactOnMkOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="wildlifeApp.competitors.competitorAction" for="field_competitorActions">Competitor Action</label>
+                    <select class="form-control" id="field_competitorActions" multiple name="competitorActions" formControlName="competitorActions">
+                        <option [ngValue]="getSelected(editForm.get('competitorActions')!.value, competitorActionOption)" *ngFor="let competitorActionOption of competitoractions; trackBy: trackById">{{ competitorActionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.competitors.sighting" for="field_sighting">Sighting</label>
+                    <select class="form-control" id="field_sighting" name="sighting" formControlName="sighting">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sightingOption.id === editForm.get('sighting')!.value?.id ? editForm.get('sighting')!.value : sightingOption" *ngFor="let sightingOption of sightings; trackBy: trackById">{{ sightingOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

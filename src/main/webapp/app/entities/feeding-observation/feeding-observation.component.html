@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="wildlifeApp.feedingObservation.home.title">Feeding Observations</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-feeding-observation" [routerLink]="['/feeding-observation/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="wildlifeApp.feedingObservation.home.createLabel">
+            Create a new Feeding Observation
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="feedingObservations?.length === 0">
+        <span jhiTranslate="wildlifeApp.feedingObservation.home.notFound">No feedingObservations found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="feedingObservations && feedingObservations.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.feedingObservation.noFieldWorkers">No Field Workers</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.feedingObservation.type">Type</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.feedingObservation.breedingAttempt">Breeding Attempt</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.feedingObservation.breedingStage">Breeding Stage</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.feedingObservation.breedingOutcome">Breeding Outcome</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.feedingObservation.preyItem">Prey Item</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.feedingObservation.preySpecies">Prey Species</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.feedingObservation.time">Time</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.feedingObservation.cloud">Cloud</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.feedingObservation.wind">Wind</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.feedingObservation.rain">Rain</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.feedingObservation.outcome">Outcome</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.feedingObservation.comment">Comment</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let feedingObservation of feedingObservations ;trackBy: trackId">
+                    <td><a [routerLink]="['/feeding-observation', feedingObservation.id, 'view']">{{ feedingObservation.id }}</a></td>
+                    <td>{{ feedingObservation.noFieldWorkers }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.FeedingObservationType.' + feedingObservation.type }}">{{ feedingObservation.type }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.BreedAttemptType.' + feedingObservation.breedingAttempt }}">{{ feedingObservation.breedingAttempt }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.BreedingStageType.' + feedingObservation.breedingStage }}">{{ feedingObservation.breedingStage }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.BreedingOutcomeType.' + feedingObservation.breedingOutcome }}">{{ feedingObservation.breedingOutcome }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.PreyItemType.' + feedingObservation.preyItem }}">{{ feedingObservation.preyItem }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.PreySpeciesType.' + feedingObservation.preySpecies }}">{{ feedingObservation.preySpecies }}</td>
+                    <td>{{ feedingObservation.time }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.CloudType.' + feedingObservation.cloud }}">{{ feedingObservation.cloud }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.WindType.' + feedingObservation.wind }}">{{ feedingObservation.wind }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.RainType.' + feedingObservation.rain }}">{{ feedingObservation.rain }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.FeedingObservationOutcomeType.' + feedingObservation.outcome }}">{{ feedingObservation.outcome }}</td>
+                    <td>{{ feedingObservation.comment }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/feeding-observation', feedingObservation.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/feeding-observation', feedingObservation.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(feedingObservation)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

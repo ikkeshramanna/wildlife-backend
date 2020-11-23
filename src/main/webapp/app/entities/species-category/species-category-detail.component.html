@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="speciesCategory">
+            <h2><span jhiTranslate="wildlifeApp.speciesCategory.detail.title">Species Category</span> {{ speciesCategory.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wildlifeApp.speciesCategory.name">Name</span></dt>
+                <dd>
+                    <span>{{ speciesCategory.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.speciesCategory.speciesCategoryType">Species Category Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.SpeciesCategoryType.' + speciesCategory.speciesCategoryType }}">{{ speciesCategory.speciesCategoryType }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.speciesCategory.picture">Picture</span></dt>
+                <dd>
+                    <div *ngIf="speciesCategory.picture">
+                        <a (click)="openFile(speciesCategory.pictureContentType, speciesCategory.picture)">
+                            <img [src]="'data:' + speciesCategory.pictureContentType + ';base64,' + speciesCategory.picture" style="max-width: 100%;" alt="speciesCategory image"/>
+                        </a>
+                        {{ speciesCategory.pictureContentType }}, {{ byteSize(speciesCategory.picture) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.speciesCategory.description">Description</span></dt>
+                <dd>
+                    <span>{{ speciesCategory.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.speciesCategory.addDate">Add Date</span></dt>
+                <dd>
+                    <span>{{ speciesCategory.addDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.speciesCategory.updateDate">Update Date</span></dt>
+                <dd>
+                    <span>{{ speciesCategory.updateDate }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/species-category', speciesCategory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

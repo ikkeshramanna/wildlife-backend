@@ -1,0 +1,12 @@
+{
+  "wildlifeApp": {
+    "StrutType": {
+      "null": "",
+      "GOOD": "GOOD",
+      "NEEDS_REPLACING_IMMEDIATELY": "NEEDS_REPLACING_IMMEDIATELY",
+      "NEEDS_REPLACING_END_OF_SEASON": "NEEDS_REPLACING_END_OF_SEASON",
+      "TEMPORARY_FIX_DONE": "TEMPORARY_FIX_DONE",
+      "LONG_TERM_FIX_DONE": "LONG_TERM_FIX_DONE"
+    }
+  }
+}

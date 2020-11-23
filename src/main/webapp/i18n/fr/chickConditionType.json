@@ -1,0 +1,11 @@
+{
+  "wildlifeApp": {
+    "ChickConditionType": {
+      "null": "",
+      "GOOD": "GOOD",
+      "MEDIUM": "MEDIUM",
+      "BAD": "BAD",
+      "UNK": "UNK"
+    }
+  }
+}

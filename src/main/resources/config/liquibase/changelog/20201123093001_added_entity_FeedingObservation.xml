@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity FeedingObservation.
+    -->
+    <changeSet id="20201123093001-1" author="jhipster">
+        <createTable tableName="feeding_observation">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="no_field_workers" type="integer">
+                <constraints nullable="false" />
+            </column>
+            <column name="type" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="breeding_attempt" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="breeding_stage" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="breeding_outcome" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="prey_item" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="prey_species" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="time" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cloud" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="wind" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="rain" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="outcome" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="comment" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20201123093001-1-relations" author="jhipster">
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20201123093001-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/feeding_observation.csv"
+                  separator=";"
+                  tableName="feeding_observation">
+            <column name="id" type="numeric"/>
+            <column name="no_field_workers" type="numeric"/>
+            <column name="type" type="string"/>
+            <column name="breeding_attempt" type="string"/>
+            <column name="breeding_stage" type="string"/>
+            <column name="breeding_outcome" type="string"/>
+            <column name="prey_item" type="string"/>
+            <column name="prey_species" type="string"/>
+            <column name="time" type="string"/>
+            <column name="cloud" type="string"/>
+            <column name="wind" type="string"/>
+            <column name="rain" type="string"/>
+            <column name="outcome" type="string"/>
+            <column name="comment" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

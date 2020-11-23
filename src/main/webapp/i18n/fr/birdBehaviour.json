@@ -1,0 +1,23 @@
+{
+  "wildlifeApp": {
+    "birdBehaviour": {
+      "home": {
+        "title": "BirdBehaviours",
+        "createLabel": "Créer un nouveau Bird Behaviour",
+        "createOrEditLabel": "Créer ou éditer un Bird Behaviour",
+        "notFound": "Aucun Bird Behaviour trouvé"
+      },
+      "created": "Un nouveau Bird Behaviour a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Bird Behaviour avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Bird Behaviour avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Bird Behaviour {{ id }} ?"
+      },
+      "detail": {
+        "title": "Bird Behaviour"
+      },
+      "behaviour": "Behaviour",
+      "birdsIdentified": "Birds Identified"
+    }
+  }
+}

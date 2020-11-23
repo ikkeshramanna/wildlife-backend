@@ -1,0 +1,28 @@
+{
+  "wildlifeApp": {
+    "observationLocation": {
+      "home": {
+        "title": "ObservationLocations",
+        "createLabel": "Créer un nouveau Observation Location",
+        "createOrEditLabel": "Créer ou éditer un Observation Location",
+        "notFound": "Aucun Observation Location trouvé"
+      },
+      "created": "Un nouveau Observation Location a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Observation Location avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Observation Location avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Observation Location {{ id }} ?"
+      },
+      "detail": {
+        "title": "Observation Location"
+      },
+      "name": "Name",
+      "gpsLatitude": "Gps Latitude",
+      "gpsCoordinate": "Gps Coordinate",
+      "locationName": "Location Name",
+      "description": "Description",
+      "addDate": "Add Date",
+      "updateDate": "Update Date"
+    }
+  }
+}

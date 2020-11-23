@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="taggedAnimal">
+            <h2><span jhiTranslate="wildlifeApp.taggedAnimal.detail.title">Tagged Animal</span> {{ taggedAnimal.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wildlifeApp.taggedAnimal.name">Name</span></dt>
+                <dd>
+                    <span>{{ taggedAnimal.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.taggedAnimal.dateOfBirth">Date Of Birth</span></dt>
+                <dd>
+                    <span>{{ taggedAnimal.dateOfBirth }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.taggedAnimal.dateOfTagging">Date Of Tagging</span></dt>
+                <dd>
+                    <span>{{ taggedAnimal.dateOfTagging }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.taggedAnimal.physicalTraits">Physical Traits</span></dt>
+                <dd>
+                    <span>{{ taggedAnimal.physicalTraits }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.taggedAnimal.tagType">Tag Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.TagType.' + taggedAnimal.tagType }}">{{ taggedAnimal.tagType }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.taggedAnimal.dateTime">Date Time</span></dt>
+                <dd>
+                    <span>{{ taggedAnimal.dateTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.taggedAnimal.sexType">Sex Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.TaggedAnimalSexType.' + taggedAnimal.sexType }}">{{ taggedAnimal.sexType }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.taggedAnimal.updateDate">Update Date</span></dt>
+                <dd>
+                    <span>{{ taggedAnimal.updateDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.taggedAnimal.taggedAnimal">Tagged Animal</span></dt>
+                <dd>
+                    <div *ngIf="taggedAnimal.taggedAnimal">
+                        <a [routerLink]="['/employee', taggedAnimal.taggedAnimal?.id, 'view']">{{ taggedAnimal.taggedAnimal?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.taggedAnimal.species">Species</span></dt>
+                <dd>
+                    <div *ngIf="taggedAnimal.species">
+                        <a [routerLink]="['/species', taggedAnimal.species?.id, 'view']">{{ taggedAnimal.species?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tagged-animal', taggedAnimal.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

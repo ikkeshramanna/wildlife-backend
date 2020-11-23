@@ -1,0 +1,33 @@
+{
+  "wildlifeApp": {
+    "species": {
+      "home": {
+        "title": "Species",
+        "createLabel": "Créer un nouveau Species",
+        "createOrEditLabel": "Créer ou éditer un Species",
+        "notFound": "Aucun Species trouvé"
+      },
+      "created": "Un nouveau Species a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Species avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Species avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Species {{ id }} ?"
+      },
+      "detail": {
+        "title": "Species"
+      },
+      "picture": "Picture",
+      "feedingTraitType": "Feeding Trait Type",
+      "speciesType": "Species Type",
+      "commonName": "Common Name",
+      "latinName": "Latin Name",
+      "description": "Description",
+      "isIndigenous": "Is Indigenous",
+      "addDate": "Add Date",
+      "updateDate": "Update Date",
+      "taggedAnimal": "Tagged Animal",
+      "speciesCategory": "Species Category",
+      "country": "Country"
+    }
+  }
+}

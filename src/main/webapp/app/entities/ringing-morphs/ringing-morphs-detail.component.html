@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ringingMorphs">
+            <h2><span jhiTranslate="wildlifeApp.ringingMorphs.detail.title">Ringing Morphs</span> {{ ringingMorphs.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.mkType">Mk Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.MkType.' + ringingMorphs.mkType }}">{{ ringingMorphs.mkType }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.reasonForCapture">Reason For Capture</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.ReasonForCaptureType.' + ringingMorphs.reasonForCapture }}">{{ ringingMorphs.reasonForCapture }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.captureMethod">Capture Method</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.CaptureMethodType.' + ringingMorphs.captureMethod }}">{{ ringingMorphs.captureMethod }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.name">Name</span></dt>
+                <dd>
+                    <span>{{ ringingMorphs.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.age">Age</span></dt>
+                <dd>
+                    <span>{{ ringingMorphs.age }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.weight">Weight</span></dt>
+                <dd>
+                    <span>{{ ringingMorphs.weight }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.head">Head</span></dt>
+                <dd>
+                    <span>{{ ringingMorphs.head }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.exposedCulmen">Exposed Culmen</span></dt>
+                <dd>
+                    <span>{{ ringingMorphs.exposedCulmen }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.culmenToSkull">Culmen To Skull</span></dt>
+                <dd>
+                    <span>{{ ringingMorphs.culmenToSkull }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.wing">Wing</span></dt>
+                <dd>
+                    <span>{{ ringingMorphs.wing }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.p8">P 8</span></dt>
+                <dd>
+                    <span>{{ ringingMorphs.p8 }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.p8Brush">P 8 Brush</span></dt>
+                <dd>
+                    <span>{{ ringingMorphs.p8Brush }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.tail">Tail</span></dt>
+                <dd>
+                    <span>{{ ringingMorphs.tail }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.tailBrush">Tail Brush</span></dt>
+                <dd>
+                    <span>{{ ringingMorphs.tailBrush }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.tarsusLength">Tarsus Length</span></dt>
+                <dd>
+                    <span>{{ ringingMorphs.tarsusLength }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.ringingMorphs.comments">Comments</span></dt>
+                <dd>
+                    <span>{{ ringingMorphs.comments }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ringing-morphs', ringingMorphs.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="wildlifeApp.competitors.home.title">Competitors</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-competitors" [routerLink]="['/competitors/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="wildlifeApp.competitors.home.createLabel">
+            Create a new Competitors
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="competitors?.length === 0">
+        <span jhiTranslate="wildlifeApp.competitors.home.notFound">No competitors found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="competitors && competitors.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.competitors.mkAround">Mk Around</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.competitors.noOfIndividuals">No Of Individuals</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.competitors.competitorBehaviour">Competitor Behaviour</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.competitors.competitorLocation">Competitor Location</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.competitors.competitorSpecies">Competitor Species</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.competitors.competitorImpactOnMk">Competitor Impact On Mk</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.competitors.competitorAction">Competitor Action</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.competitors.sighting">Sighting</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let competitors of competitors ;trackBy: trackId">
+                    <td><a [routerLink]="['/competitors', competitors.id, 'view']">{{ competitors.id }}</a></td>
+                    <td>{{ competitors.mkAround }}</td>
+                    <td>{{ competitors.noOfIndividuals }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.CompetitorBehaviourType.' + competitors.competitorBehaviour }}">{{ competitors.competitorBehaviour }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.CompetitorLocationType.' + competitors.competitorLocation }}">{{ competitors.competitorLocation }}</td>
+                    <td>
+                        <div *ngIf="competitors.competitorSpecies">
+                            <a [routerLink]="['/species', competitors.competitorSpecies?.id, 'view']" >{{ competitors.competitorSpecies?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <span *ngFor="let competitorImpactOnMk of competitors.competitorImpactOnMks; let last = last">
+                            <a class="form-control-static" [routerLink]="['/competitor-impact-on-mk', competitorImpactOnMk?.id, 'view']">{{ competitorImpactOnMk.id }}</a>{{ last ? '' : ', ' }}
+                        </span>
+                    </td>
+                    <td>
+                        <span *ngFor="let competitorAction of competitors.competitorActions; let last = last">
+                            <a class="form-control-static" [routerLink]="['/competitor-action', competitorAction?.id, 'view']">{{ competitorAction.id }}</a>{{ last ? '' : ', ' }}
+                        </span>
+                    </td>
+                    <td>
+                        <div *ngIf="competitors.sighting">
+                            <a [routerLink]="['/sighting', competitors.sighting?.id, 'view']" >{{ competitors.sighting?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/competitors', competitors.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/competitors', competitors.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(competitors)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

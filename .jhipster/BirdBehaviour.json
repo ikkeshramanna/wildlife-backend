@@ -1,0 +1,34 @@
+{
+  "name": "BirdBehaviour",
+  "fields": [
+    {
+      "fieldName": "behaviour",
+      "fieldType": "BirdBehaviourType",
+      "fieldValues": "FLEW_AWAY_FROM_SITE,IN_NEST_SITE,PERCHING,FLYING,BEGGING_TO_MALE,FED_BY_MALE,ALLOPREENING_MALE,COPULATION_WITH_MALE,FEEDING_THE_FEMALE,ALLOPREENING_FEMALE,COPULATION_WITH_FEMALE,BRINGING_FOOD_ITEM,FEEDING,HUNTING,DEFENDING_NEST_SITE,CHASING_OTHER_MK,FIGHTING_OTHER_MK,CHASING_COMPETITORS,FIGHTING_COMPETITORS,INTERACTION_WITH_CHICKS,INTERACTION_WITH_FLEDGLINGS,CIRCLING_DISPLAYING_ABOVE_SITE",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "birdsIdentified",
+      "otherEntityRelationshipName": "birdBehaviour",
+      "relationshipName": "birdsIdentified",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201123092301",
+  "entityTableName": "bird_behaviour",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

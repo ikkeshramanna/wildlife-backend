@@ -1,0 +1,271 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-ringing-morphs-heading" jhiTranslate="wildlifeApp.ringingMorphs.home.createOrEditLabel">Create or edit a Ringing Morphs</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.mkType" for="field_mkType">Mk Type</label>
+                    <select class="form-control" name="mkType" formControlName="mkType" id="field_mkType">
+                        <option value="CHICK">{{ 'wildlifeApp.MkType.CHICK' | translate }}</option>
+                        <option value="JUVENILLE">{{ 'wildlifeApp.MkType.JUVENILLE' | translate }}</option>
+                        <option value="FLEDGING">{{ 'wildlifeApp.MkType.FLEDGING' | translate }}</option>
+                        <option value="ADULT_MALE">{{ 'wildlifeApp.MkType.ADULT_MALE' | translate }}</option>
+                        <option value="ADULT_FEMALE">{{ 'wildlifeApp.MkType.ADULT_FEMALE' | translate }}</option>
+                        <option value="UNKNOWN">{{ 'wildlifeApp.MkType.UNKNOWN' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('mkType')!.invalid && (editForm.get('mkType')!.dirty || editForm.get('mkType')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mkType')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.reasonForCapture" for="field_reasonForCapture">Reason For Capture</label>
+                    <select class="form-control" name="reasonForCapture" formControlName="reasonForCapture" id="field_reasonForCapture">
+                        <option value="CHICK_RINGING">{{ 'wildlifeApp.ReasonForCaptureType.CHICK_RINGING' | translate }}</option>
+                        <option value="UNRINGED">{{ 'wildlifeApp.ReasonForCaptureType.UNRINGED' | translate }}</option>
+                        <option value="MISSING_RINGS">{{ 'wildlifeApp.ReasonForCaptureType.MISSING_RINGS' | translate }}</option>
+                        <option value="FADED_RINGS">{{ 'wildlifeApp.ReasonForCaptureType.FADED_RINGS' | translate }}</option>
+                        <option value="HEALTH_CHECK">{{ 'wildlifeApp.ReasonForCaptureType.HEALTH_CHECK' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('reasonForCapture')!.invalid && (editForm.get('reasonForCapture')!.dirty || editForm.get('reasonForCapture')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('reasonForCapture')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.captureMethod" for="field_captureMethod">Capture Method</label>
+                    <select class="form-control" name="captureMethod" formControlName="captureMethod" id="field_captureMethod">
+                        <option value="NESTLING">{{ 'wildlifeApp.CaptureMethodType.NESTLING' | translate }}</option>
+                        <option value="INREST">{{ 'wildlifeApp.CaptureMethodType.INREST' | translate }}</option>
+                        <option value="BAL_CHATRI">{{ 'wildlifeApp.CaptureMethodType.BAL_CHATRI' | translate }}</option>
+                        <option value="NOOSE_CARPET">{{ 'wildlifeApp.CaptureMethodType.NOOSE_CARPET' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('captureMethod')!.invalid && (editForm.get('captureMethod')!.dirty || editForm.get('captureMethod')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('captureMethod')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.age" for="field_age">Age</label>
+                    <input type="number" class="form-control" name="age" id="field_age"
+                           formControlName="age"/>
+                    <div *ngIf="editForm.get('age')!.invalid && (editForm.get('age')!.dirty || editForm.get('age')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('age')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('age')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.weight" for="field_weight">Weight</label>
+                    <input type="number" class="form-control" name="weight" id="field_weight"
+                           formControlName="weight"/>
+                    <div *ngIf="editForm.get('weight')!.invalid && (editForm.get('weight')!.dirty || editForm.get('weight')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('weight')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('weight')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.head" for="field_head">Head</label>
+                    <input type="number" class="form-control" name="head" id="field_head"
+                           formControlName="head"/>
+                    <div *ngIf="editForm.get('head')!.invalid && (editForm.get('head')!.dirty || editForm.get('head')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('head')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('head')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.exposedCulmen" for="field_exposedCulmen">Exposed Culmen</label>
+                    <input type="number" class="form-control" name="exposedCulmen" id="field_exposedCulmen"
+                           formControlName="exposedCulmen"/>
+                    <div *ngIf="editForm.get('exposedCulmen')!.invalid && (editForm.get('exposedCulmen')!.dirty || editForm.get('exposedCulmen')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('exposedCulmen')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('exposedCulmen')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.culmenToSkull" for="field_culmenToSkull">Culmen To Skull</label>
+                    <input type="number" class="form-control" name="culmenToSkull" id="field_culmenToSkull"
+                           formControlName="culmenToSkull"/>
+                    <div *ngIf="editForm.get('culmenToSkull')!.invalid && (editForm.get('culmenToSkull')!.dirty || editForm.get('culmenToSkull')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('culmenToSkull')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('culmenToSkull')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.wing" for="field_wing">Wing</label>
+                    <input type="number" class="form-control" name="wing" id="field_wing"
+                           formControlName="wing"/>
+                    <div *ngIf="editForm.get('wing')!.invalid && (editForm.get('wing')!.dirty || editForm.get('wing')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('wing')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('wing')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.p8" for="field_p8">P 8</label>
+                    <input type="number" class="form-control" name="p8" id="field_p8"
+                           formControlName="p8"/>
+                    <div *ngIf="editForm.get('p8')!.invalid && (editForm.get('p8')!.dirty || editForm.get('p8')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('p8')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('p8')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.p8Brush" for="field_p8Brush">P 8 Brush</label>
+                    <input type="number" class="form-control" name="p8Brush" id="field_p8Brush"
+                           formControlName="p8Brush"/>
+                    <div *ngIf="editForm.get('p8Brush')!.invalid && (editForm.get('p8Brush')!.dirty || editForm.get('p8Brush')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('p8Brush')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('p8Brush')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.tail" for="field_tail">Tail</label>
+                    <input type="number" class="form-control" name="tail" id="field_tail"
+                           formControlName="tail"/>
+                    <div *ngIf="editForm.get('tail')!.invalid && (editForm.get('tail')!.dirty || editForm.get('tail')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tail')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tail')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.tailBrush" for="field_tailBrush">Tail Brush</label>
+                    <input type="number" class="form-control" name="tailBrush" id="field_tailBrush"
+                           formControlName="tailBrush"/>
+                    <div *ngIf="editForm.get('tailBrush')!.invalid && (editForm.get('tailBrush')!.dirty || editForm.get('tailBrush')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tailBrush')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tailBrush')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.tarsusLength" for="field_tarsusLength">Tarsus Length</label>
+                    <input type="number" class="form-control" name="tarsusLength" id="field_tarsusLength"
+                           formControlName="tarsusLength"/>
+                    <div *ngIf="editForm.get('tarsusLength')!.invalid && (editForm.get('tarsusLength')!.dirty || editForm.get('tarsusLength')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tarsusLength')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('tarsusLength')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.ringingMorphs.comments" for="field_comments">Comments</label>
+                    <input type="text" class="form-control" name="comments" id="field_comments"
+                           formControlName="comments"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

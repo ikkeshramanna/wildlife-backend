@@ -1,0 +1,23 @@
+{
+  "wildlifeApp": {
+    "competitorAction": {
+      "home": {
+        "title": "CompetitorActions",
+        "createLabel": "Créer un nouveau Competitor Action",
+        "createOrEditLabel": "Créer ou éditer un Competitor Action",
+        "notFound": "Aucun Competitor Action trouvé"
+      },
+      "created": "Un nouveau Competitor Action a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Competitor Action avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Competitor Action avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Competitor Action {{ id }} ?"
+      },
+      "detail": {
+        "title": "Competitor Action"
+      },
+      "action": "Action",
+      "competitors": "Competitors"
+    }
+  }
+}

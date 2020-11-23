@@ -1,0 +1,150 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-chick-heading" jhiTranslate="wildlifeApp.chick.home.createOrEditLabel">Create or edit a Chick</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.chick.chickNumber" for="field_chickNumber">Chick Number</label>
+                    <input type="number" class="form-control" name="chickNumber" id="field_chickNumber"
+                           formControlName="chickNumber"/>
+                    <div *ngIf="editForm.get('chickNumber')!.invalid && (editForm.get('chickNumber')!.dirty || editForm.get('chickNumber')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('chickNumber')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('chickNumber')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.chick.hatchDate" for="field_hatchDate">Hatch Date</label>
+                    <div class="input-group">
+                        <input id="field_hatchDate" type="text" class="form-control" name="hatchDate" ngbDatepicker #hatchDateDp="ngbDatepicker" formControlName="hatchDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="hatchDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('hatchDate')!.invalid && (editForm.get('hatchDate')!.dirty || editForm.get('hatchDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('hatchDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.chick.chickStatus" for="field_chickStatus">Chick Status</label>
+                    <select class="form-control" name="chickStatus" formControlName="chickStatus" id="field_chickStatus">
+                        <option value="ALIVE">{{ 'wildlifeApp.ChicKStatusType.ALIVE' | translate }}</option>
+                        <option value="FLEDGED">{{ 'wildlifeApp.ChicKStatusType.FLEDGED' | translate }}</option>
+                        <option value="DEAD">{{ 'wildlifeApp.ChicKStatusType.DEAD' | translate }}</option>
+                        <option value="UNKNOWN">{{ 'wildlifeApp.ChicKStatusType.UNKNOWN' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('chickStatus')!.invalid && (editForm.get('chickStatus')!.dirty || editForm.get('chickStatus')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('chickStatus')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.chick.chickAge" for="field_chickAge">Chick Age</label>
+                    <input type="number" class="form-control" name="chickAge" id="field_chickAge"
+                           formControlName="chickAge"/>
+                    <div *ngIf="editForm.get('chickAge')!.invalid && (editForm.get('chickAge')!.dirty || editForm.get('chickAge')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('chickAge')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('chickAge')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.chick.chickActive" for="field_chickActive">Chick Active</label>
+                    <input type="text" class="form-control" name="chickActive" id="field_chickActive"
+                           formControlName="chickActive"/>
+                    <div *ngIf="editForm.get('chickActive')!.invalid && (editForm.get('chickActive')!.dirty || editForm.get('chickActive')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('chickActive')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.chick.chickCondition" for="field_chickCondition">Chick Condition</label>
+                    <select class="form-control" name="chickCondition" formControlName="chickCondition" id="field_chickCondition">
+                        <option value="GOOD">{{ 'wildlifeApp.ChickConditionType.GOOD' | translate }}</option>
+                        <option value="MEDIUM">{{ 'wildlifeApp.ChickConditionType.MEDIUM' | translate }}</option>
+                        <option value="BAD">{{ 'wildlifeApp.ChickConditionType.BAD' | translate }}</option>
+                        <option value="UNK">{{ 'wildlifeApp.ChickConditionType.UNK' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('chickCondition')!.invalid && (editForm.get('chickCondition')!.dirty || editForm.get('chickCondition')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('chickCondition')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.chick.chickRinged" for="field_chickRinged">Chick Ringed</label>
+                    <input type="text" class="form-control" name="chickRinged" id="field_chickRinged"
+                           formControlName="chickRinged"/>
+                    <div *ngIf="editForm.get('chickRinged')!.invalid && (editForm.get('chickRinged')!.dirty || editForm.get('chickRinged')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('chickRinged')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.chick.bloodSample" for="field_bloodSample">Blood Sample</label>
+                    <input type="text" class="form-control" name="bloodSample" id="field_bloodSample"
+                           formControlName="bloodSample"/>
+                    <div *ngIf="editForm.get('bloodSample')!.invalid && (editForm.get('bloodSample')!.dirty || editForm.get('bloodSample')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('bloodSample')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.chick.eggsAndChick" for="field_eggsAndChick">Eggs And Chick</label>
+                    <select class="form-control" id="field_eggsAndChick" name="eggsAndChick" formControlName="eggsAndChick">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="eggsAndChickOption.id === editForm.get('eggsAndChick')!.value?.id ? editForm.get('eggsAndChick')!.value : eggsAndChickOption" *ngFor="let eggsAndChickOption of eggsandchicks; trackBy: trackById">{{ eggsAndChickOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
