@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="nestSiteOverview">
+            <h2><span jhiTranslate="wildlifeApp.nestSiteOverview.detail.title">Nest Site Overview</span> {{ nestSiteOverview.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wildlifeApp.nestSiteOverview.numberPeople">Number People</span></dt>
+                <dd>
+                    <span>{{ nestSiteOverview.numberPeople }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.nestSiteOverview.purposeOfVisit">Purpose Of Visit</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.VisitPurposeType.' + nestSiteOverview.purposeOfVisit }}">{{ nestSiteOverview.purposeOfVisit }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.nestSiteOverview.signsOfUse">Signs Of Use</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.UseSignType.' + nestSiteOverview.signsOfUse }}">{{ nestSiteOverview.signsOfUse }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.nestSiteOverview.nestingSubstrate">Nesting Substrate</span></dt>
+                <dd>
+                    <span>{{ nestSiteOverview.nestingSubstrate }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.nestSiteOverview.maintenanceDone">Maintenance Done</span></dt>
+                <dd>
+                    <span>{{ nestSiteOverview.maintenanceDone }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.nestSiteOverview.maintenanceRequired">Maintenance Required</span></dt>
+                <dd>
+                    <span>{{ nestSiteOverview.maintenanceRequired }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.nestSiteOverview.comments">Comments</span></dt>
+                <dd>
+                    <span>{{ nestSiteOverview.comments }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nest-site-overview', nestSiteOverview.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

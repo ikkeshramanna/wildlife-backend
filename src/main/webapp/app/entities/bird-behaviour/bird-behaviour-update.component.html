@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-bird-behaviour-heading" jhiTranslate="wildlifeApp.birdBehaviour.home.createOrEditLabel">Create or edit a Bird Behaviour</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.birdBehaviour.behaviour" for="field_behaviour">Behaviour</label>
+                    <select class="form-control" name="behaviour" formControlName="behaviour" id="field_behaviour">
+                        <option value="FLEW_AWAY_FROM_SITE">{{ 'wildlifeApp.BirdBehaviourType.FLEW_AWAY_FROM_SITE' | translate }}</option>
+                        <option value="IN_NEST_SITE">{{ 'wildlifeApp.BirdBehaviourType.IN_NEST_SITE' | translate }}</option>
+                        <option value="PERCHING">{{ 'wildlifeApp.BirdBehaviourType.PERCHING' | translate }}</option>
+                        <option value="FLYING">{{ 'wildlifeApp.BirdBehaviourType.FLYING' | translate }}</option>
+                        <option value="BEGGING_TO_MALE">{{ 'wildlifeApp.BirdBehaviourType.BEGGING_TO_MALE' | translate }}</option>
+                        <option value="FED_BY_MALE">{{ 'wildlifeApp.BirdBehaviourType.FED_BY_MALE' | translate }}</option>
+                        <option value="ALLOPREENING_MALE">{{ 'wildlifeApp.BirdBehaviourType.ALLOPREENING_MALE' | translate }}</option>
+                        <option value="COPULATION_WITH_MALE">{{ 'wildlifeApp.BirdBehaviourType.COPULATION_WITH_MALE' | translate }}</option>
+                        <option value="FEEDING_THE_FEMALE">{{ 'wildlifeApp.BirdBehaviourType.FEEDING_THE_FEMALE' | translate }}</option>
+                        <option value="ALLOPREENING_FEMALE">{{ 'wildlifeApp.BirdBehaviourType.ALLOPREENING_FEMALE' | translate }}</option>
+                        <option value="COPULATION_WITH_FEMALE">{{ 'wildlifeApp.BirdBehaviourType.COPULATION_WITH_FEMALE' | translate }}</option>
+                        <option value="BRINGING_FOOD_ITEM">{{ 'wildlifeApp.BirdBehaviourType.BRINGING_FOOD_ITEM' | translate }}</option>
+                        <option value="FEEDING">{{ 'wildlifeApp.BirdBehaviourType.FEEDING' | translate }}</option>
+                        <option value="HUNTING">{{ 'wildlifeApp.BirdBehaviourType.HUNTING' | translate }}</option>
+                        <option value="DEFENDING_NEST_SITE">{{ 'wildlifeApp.BirdBehaviourType.DEFENDING_NEST_SITE' | translate }}</option>
+                        <option value="CHASING_OTHER_MK">{{ 'wildlifeApp.BirdBehaviourType.CHASING_OTHER_MK' | translate }}</option>
+                        <option value="FIGHTING_OTHER_MK">{{ 'wildlifeApp.BirdBehaviourType.FIGHTING_OTHER_MK' | translate }}</option>
+                        <option value="CHASING_COMPETITORS">{{ 'wildlifeApp.BirdBehaviourType.CHASING_COMPETITORS' | translate }}</option>
+                        <option value="FIGHTING_COMPETITORS">{{ 'wildlifeApp.BirdBehaviourType.FIGHTING_COMPETITORS' | translate }}</option>
+                        <option value="INTERACTION_WITH_CHICKS">{{ 'wildlifeApp.BirdBehaviourType.INTERACTION_WITH_CHICKS' | translate }}</option>
+                        <option value="INTERACTION_WITH_FLEDGLINGS">{{ 'wildlifeApp.BirdBehaviourType.INTERACTION_WITH_FLEDGLINGS' | translate }}</option>
+                        <option value="CIRCLING_DISPLAYING_ABOVE_SITE">{{ 'wildlifeApp.BirdBehaviourType.CIRCLING_DISPLAYING_ABOVE_SITE' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('behaviour')!.invalid && (editForm.get('behaviour')!.dirty || editForm.get('behaviour')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('behaviour')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

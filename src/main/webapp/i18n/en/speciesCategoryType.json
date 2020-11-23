@@ -1,0 +1,9 @@
+{
+  "wildlifeApp": {
+    "SpeciesCategoryType": {
+      "null": "",
+      "FAUNA": "FAUNA",
+      "FLORA": "FLORA"
+    }
+  }
+}

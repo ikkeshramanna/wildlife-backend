@@ -1,0 +1,83 @@
+{
+  "name": "Chick",
+  "fields": [
+    {
+      "fieldName": "chickNumber",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "hatchDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "chickStatus",
+      "fieldType": "ChicKStatusType",
+      "fieldValues": "ALIVE,FLEDGED,DEAD,UNKNOWN",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "chickAge",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "chickActive",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "chickCondition",
+      "fieldType": "ChickConditionType",
+      "fieldValues": "GOOD,MEDIUM,BAD,UNK",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "chickRinged",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "bloodSample",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "eggsAndChick",
+      "otherEntityRelationshipName": "chick",
+      "relationshipName": "eggsAndChick",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201123092601",
+  "entityTableName": "chick",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

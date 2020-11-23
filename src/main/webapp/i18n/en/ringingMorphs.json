@@ -1,0 +1,38 @@
+{
+  "wildlifeApp": {
+    "ringingMorphs": {
+      "home": {
+        "title": "Ringing Morphs",
+        "createLabel": "Create a new Ringing Morphs",
+        "createOrEditLabel": "Create or edit a Ringing Morphs",
+        "notFound": "No Ringing Morphs found"
+      },
+      "created": "A new Ringing Morphs is created with identifier {{ param }}",
+      "updated": "A Ringing Morphs is updated with identifier {{ param }}",
+      "deleted": "A Ringing Morphs is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ringing Morphs {{ id }}?"
+      },
+      "detail": {
+        "title": "Ringing Morphs"
+      },
+      "mkType": "Mk Type",
+      "reasonForCapture": "Reason For Capture",
+      "captureMethod": "Capture Method",
+      "name": "Name",
+      "age": "Age",
+      "weight": "Weight",
+      "head": "Head",
+      "exposedCulmen": "Exposed Culmen",
+      "culmenToSkull": "Culmen To Skull",
+      "wing": "Wing",
+      "p8": "P 8",
+      "p8Brush": "P 8 Brush",
+      "tail": "Tail",
+      "tailBrush": "Tail Brush",
+      "tarsusLength": "Tarsus Length",
+      "comments": "Comments",
+      "sighting": "Sighting"
+    }
+  }
+}

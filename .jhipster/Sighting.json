@@ -1,0 +1,172 @@
+{
+  "name": "Sighting",
+  "fields": [
+    {
+      "fieldName": "nestSite",
+      "fieldType": "NestSiteType",
+      "fieldValues": "BAMBOUS_VIRIEUX_3,CAMIZARD_CHARIZARD_CLIFF,CHAMPAGNE_CLIFF,CHIMNEY_CLIFF,DOMAINE_DE_LETOILE_2,DOMAINE_DE_LETOILE_3,DOMAINE_DE_LETOILE_4,DOMAINE_DE_LETOILE_5,DOMAINE_DE_LETOILE_8,DOMAINE_DE_LETOILE_9,DOMAINE_DU_CHASSEUR_5,DOMAINE_DU_CHASSEUR_7,DOMAINE_DU_CHASSEUR_8,DOMAINE_DU_CHASSEUR_CABIN,DOMAINE_DU_CHASSEUR_CAR_PARK,DOMAINE_DU_CHASSEUR_OFFICE,DOMAINE_DU_CHASSEUR_PLASTIC,EAST_ROCK,FERNEY_1,FERNEY_10,FERNEY_11,FERNEY_12,FERNEY_13,FERNEY_14,FERNEY_2A,FERNEY_2C,FERNEY_3,FERNEY_4,FERNEY_5,FERNEY_6,FERNEY_7,FERNEY_8,FERNEY_9,FERNEY_CLIFF,FERNEY_DUPONT,FERNEY_ENCLOSURE,FERNEY_INGAM,FERNEY_MIDDLE,FERNEY_REDUIT,LE_VALLON_13,LE_VALLON_6,MAURITANIA,MOUNT_CAMIZARD_1A,MOUNT_CAMIZARD_2A,MOUNT_CAMIZARD_2B,MOUNT_CAMIZARD_4,MOUNT_CAMIZARD_5,NEW_HOPE,OWENS_HOUSE,PETIT_FOND_1,PETIT_FOND_2,PETIT_PARC,POWER_STATION_CLIFF,RICHE_EN_EAU_11,RICHE_EN_EAU_13,RICHE_EN_EAU_2,RICHE_EN_EAU_3,RICHE_EN_EAU_4,RICHE_EN_EAU_9,UNDETECTED,VALLEE_DE_LEST,YLANG_CHASSE,YLANG_FOREST,ISENDGAARD,DRAGONS_VIEW,KOALA_CLIFF,COPSHOP_CLIFF,CAT_AND_MOUSE",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "area",
+      "fieldType": "AreaType",
+      "fieldValues": "FERNEY,LE_VALLON,DOMAINE_DE_LETOILE,DOMAINE_DU_CHASSEUR,VALLEE_DE_LEST,RICHE_EN_EAU,BAMBOUS_VIRIEUX,LION_MOUNTAIN,BAMBOUS_PINNACLE",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "nestType",
+      "fieldType": "NestType",
+      "fieldValues": "WOODBOX,WHITE_RP_BOX,BLACK_RP_BOX,PVC_BOX,CLIFF,TREE_CAVITY"
+    },
+    {
+      "fieldName": "year",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "month",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "observer",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "gpsLatitude",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gpsCoordinate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "locationName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "addDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "updateDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "birdsIdentified",
+      "otherEntityRelationshipName": "sighting",
+      "relationshipName": "birdsIdentified",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "eggsAndChick",
+      "otherEntityRelationshipName": "sighting",
+      "relationshipName": "eggsAndChick",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "feedingObservation",
+      "otherEntityRelationshipName": "sighting",
+      "relationshipName": "feedingObservation",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "nestSiteOverview",
+      "otherEntityRelationshipName": "sighting",
+      "relationshipName": "nestSiteOverview",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "maintenance",
+      "otherEntityRelationshipName": "sighting",
+      "relationshipName": "maintenance",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "ringingMorphs",
+      "otherEntityRelationshipName": "sighting",
+      "relationshipName": "ringingMorphs",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "photo",
+      "otherEntityRelationshipName": "sighting",
+      "relationshipName": "photos"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "competitors",
+      "otherEntityRelationshipName": "sighting",
+      "relationshipName": "competitors"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "observationLocation",
+      "otherEntityRelationshipName": "sighting",
+      "relationshipName": "observationLocation",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "species",
+      "otherEntityRelationshipName": "sighting",
+      "relationshipName": "species",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "sighting",
+      "relationshipName": "employee",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "taggedAnimal",
+      "otherEntityRelationshipName": "sighting",
+      "relationshipName": "taggedAnimal",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201123092101",
+  "entityTableName": "sighting",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

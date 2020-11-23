@@ -1,0 +1,27 @@
+{
+  "wildlifeApp": {
+    "speciesCategory": {
+      "home": {
+        "title": "SpeciesCategories",
+        "createLabel": "Créer un nouveau Species Category",
+        "createOrEditLabel": "Créer ou éditer un Species Category",
+        "notFound": "Aucun Species Category trouvé"
+      },
+      "created": "Un nouveau Species Category a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Species Category avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Species Category avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Species Category {{ id }} ?"
+      },
+      "detail": {
+        "title": "Species Category"
+      },
+      "name": "Name",
+      "speciesCategoryType": "Species Category Type",
+      "picture": "Picture",
+      "description": "Description",
+      "addDate": "Add Date",
+      "updateDate": "Update Date"
+    }
+  }
+}

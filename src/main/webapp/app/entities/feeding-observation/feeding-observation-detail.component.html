@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="feedingObservation">
+            <h2><span jhiTranslate="wildlifeApp.feedingObservation.detail.title">Feeding Observation</span> {{ feedingObservation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wildlifeApp.feedingObservation.noFieldWorkers">No Field Workers</span></dt>
+                <dd>
+                    <span>{{ feedingObservation.noFieldWorkers }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.feedingObservation.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.FeedingObservationType.' + feedingObservation.type }}">{{ feedingObservation.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.feedingObservation.breedingAttempt">Breeding Attempt</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.BreedAttemptType.' + feedingObservation.breedingAttempt }}">{{ feedingObservation.breedingAttempt }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.feedingObservation.breedingStage">Breeding Stage</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.BreedingStageType.' + feedingObservation.breedingStage }}">{{ feedingObservation.breedingStage }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.feedingObservation.breedingOutcome">Breeding Outcome</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.BreedingOutcomeType.' + feedingObservation.breedingOutcome }}">{{ feedingObservation.breedingOutcome }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.feedingObservation.preyItem">Prey Item</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.PreyItemType.' + feedingObservation.preyItem }}">{{ feedingObservation.preyItem }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.feedingObservation.preySpecies">Prey Species</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.PreySpeciesType.' + feedingObservation.preySpecies }}">{{ feedingObservation.preySpecies }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.feedingObservation.time">Time</span></dt>
+                <dd>
+                    <span>{{ feedingObservation.time }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.feedingObservation.cloud">Cloud</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.CloudType.' + feedingObservation.cloud }}">{{ feedingObservation.cloud }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.feedingObservation.wind">Wind</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.WindType.' + feedingObservation.wind }}">{{ feedingObservation.wind }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.feedingObservation.rain">Rain</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.RainType.' + feedingObservation.rain }}">{{ feedingObservation.rain }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.feedingObservation.outcome">Outcome</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.FeedingObservationOutcomeType.' + feedingObservation.outcome }}">{{ feedingObservation.outcome }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.feedingObservation.comment">Comment</span></dt>
+                <dd>
+                    <span>{{ feedingObservation.comment }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/feeding-observation', feedingObservation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

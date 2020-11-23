@@ -1,0 +1,112 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-tagged-animal-heading" jhiTranslate="wildlifeApp.taggedAnimal.home.createOrEditLabel">Create or edit a Tagged Animal</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.taggedAnimal.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.taggedAnimal.dateOfBirth" for="field_dateOfBirth">Date Of Birth</label>
+                    <div class="input-group">
+                        <input id="field_dateOfBirth" type="text" class="form-control" name="dateOfBirth" ngbDatepicker #dateOfBirthDp="ngbDatepicker" formControlName="dateOfBirth"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateOfBirthDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.taggedAnimal.dateOfTagging" for="field_dateOfTagging">Date Of Tagging</label>
+                    <div class="input-group">
+                        <input id="field_dateOfTagging" type="text" class="form-control" name="dateOfTagging" ngbDatepicker #dateOfTaggingDp="ngbDatepicker" formControlName="dateOfTagging"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateOfTaggingDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.taggedAnimal.physicalTraits" for="field_physicalTraits">Physical Traits</label>
+                    <input type="text" class="form-control" name="physicalTraits" id="field_physicalTraits"
+                           formControlName="physicalTraits"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.taggedAnimal.tagType" for="field_tagType">Tag Type</label>
+                    <select class="form-control" name="tagType" formControlName="tagType" id="field_tagType">
+                        <option value="CHIP">{{ 'wildlifeApp.TagType.CHIP' | translate }}</option>
+                        <option value="BRACELET">{{ 'wildlifeApp.TagType.BRACELET' | translate }}</option>
+                        <option value="OTHER">{{ 'wildlifeApp.TagType.OTHER' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.taggedAnimal.dateTime" for="field_dateTime">Date Time</label>
+                    <div class="input-group">
+                        <input id="field_dateTime" type="text" class="form-control" name="dateTime" ngbDatepicker #dateTimeDp="ngbDatepicker" formControlName="dateTime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateTimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.taggedAnimal.sexType" for="field_sexType">Sex Type</label>
+                    <select class="form-control" name="sexType" formControlName="sexType" id="field_sexType">
+                        <option value="MALE">{{ 'wildlifeApp.TaggedAnimalSexType.MALE' | translate }}</option>
+                        <option value="FEMALE">{{ 'wildlifeApp.TaggedAnimalSexType.FEMALE' | translate }}</option>
+                        <option value="UNKNOWN">{{ 'wildlifeApp.TaggedAnimalSexType.UNKNOWN' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.taggedAnimal.updateDate" for="field_updateDate">Update Date</label>
+                    <div class="input-group">
+                        <input id="field_updateDate" type="text" class="form-control" name="updateDate" ngbDatepicker #updateDateDp="ngbDatepicker" formControlName="updateDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="updateDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.taggedAnimal.taggedAnimal" for="field_taggedAnimal">Tagged Animal</label>
+                    <select class="form-control" id="field_taggedAnimal" name="taggedAnimal" formControlName="taggedAnimal">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeeOption.id === editForm.get('taggedAnimal')!.value?.id ? editForm.get('taggedAnimal')!.value : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackById">{{ employeeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.taggedAnimal.species" for="field_species">Species</label>
+                    <select class="form-control" id="field_species" name="species" formControlName="species">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="speciesOption.id === editForm.get('species')!.value?.id ? editForm.get('species')!.value : speciesOption" *ngFor="let speciesOption of species; trackBy: trackById">{{ speciesOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

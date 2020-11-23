@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="employee">
+            <h2><span jhiTranslate="wildlifeApp.employee.detail.title">Employee</span> {{ employee.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wildlifeApp.employee.name">Name</span></dt>
+                <dd>
+                    <span>{{ employee.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.employee.surname">Surname</span></dt>
+                <dd>
+                    <span>{{ employee.surname }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.employee.dob">Dob</span></dt>
+                <dd>
+                    <span>{{ employee.dob }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.employee.address">Address</span></dt>
+                <dd>
+                    <span>{{ employee.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.employee.email">Email</span></dt>
+                <dd>
+                    <span>{{ employee.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.employee.addDate">Add Date</span></dt>
+                <dd>
+                    <span>{{ employee.addDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.employee.updateDate">Update Date</span></dt>
+                <dd>
+                    <span>{{ employee.updateDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.employee.mobileNumber">Mobile Number</span></dt>
+                <dd>
+                    <span>{{ employee.mobileNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.employee.country">Country</span></dt>
+                <dd>
+                    <div *ngIf="employee.country">
+                        <a [routerLink]="['/country', employee.country?.id, 'view']">{{ employee.country?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/employee', employee.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="chick">
+            <h2><span jhiTranslate="wildlifeApp.chick.detail.title">Chick</span> {{ chick.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wildlifeApp.chick.chickNumber">Chick Number</span></dt>
+                <dd>
+                    <span>{{ chick.chickNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.chick.hatchDate">Hatch Date</span></dt>
+                <dd>
+                    <span>{{ chick.hatchDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.chick.chickStatus">Chick Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.ChicKStatusType.' + chick.chickStatus }}">{{ chick.chickStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.chick.chickAge">Chick Age</span></dt>
+                <dd>
+                    <span>{{ chick.chickAge }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.chick.chickActive">Chick Active</span></dt>
+                <dd>
+                    <span>{{ chick.chickActive }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.chick.chickCondition">Chick Condition</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.ChickConditionType.' + chick.chickCondition }}">{{ chick.chickCondition }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.chick.chickRinged">Chick Ringed</span></dt>
+                <dd>
+                    <span>{{ chick.chickRinged }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.chick.bloodSample">Blood Sample</span></dt>
+                <dd>
+                    <span>{{ chick.bloodSample }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.chick.eggsAndChick">Eggs And Chick</span></dt>
+                <dd>
+                    <div *ngIf="chick.eggsAndChick">
+                        <a [routerLink]="['/eggs-and-chick', chick.eggsAndChick?.id, 'view']">{{ chick.eggsAndChick?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/chick', chick.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

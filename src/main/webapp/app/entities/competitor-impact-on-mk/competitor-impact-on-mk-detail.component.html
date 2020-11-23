@@ -1,0 +1,30 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="competitorImpactOnMk">
+            <h2><span jhiTranslate="wildlifeApp.competitorImpactOnMk.detail.title">Competitor Impact On Mk</span> {{ competitorImpactOnMk.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wildlifeApp.competitorImpactOnMk.impact">Impact</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.ImpactOnMKType.' + competitorImpactOnMk.impact }}">{{ competitorImpactOnMk.impact }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/competitor-impact-on-mk', competitorImpactOnMk.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="maintenance">
+            <h2><span jhiTranslate="wildlifeApp.maintenance.detail.title">Maintenance</span> {{ maintenance.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wildlifeApp.maintenance.struts">Struts</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.StrutType.' + maintenance.struts }}">{{ maintenance.struts }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.boxCondition">Box Condition</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.BoxConditionType.' + maintenance.boxCondition }}">{{ maintenance.boxCondition }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.beePlastic">Bee Plastic</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.BeePlasticType.' + maintenance.beePlastic }}">{{ maintenance.beePlastic }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.hatch">Hatch</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.HatchType.' + maintenance.hatch }}">{{ maintenance.hatch }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.steps">Steps</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.StepsType.' + maintenance.steps }}">{{ maintenance.steps }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.handholds">Handholds</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.HandHoldsType.' + maintenance.handholds }}">{{ maintenance.handholds }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.treeNeedsReplacing">Tree Needs Replacing</span></dt>
+                <dd>
+                    <span>{{ maintenance.treeNeedsReplacing }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.boxNeedsReplacing">Box Needs Replacing</span></dt>
+                <dd>
+                    <span>{{ maintenance.boxNeedsReplacing }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.clearing">Clearing</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.ClearingType.' + maintenance.clearing }}">{{ maintenance.clearing }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.path">Path</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.PathType.' + maintenance.path }}">{{ maintenance.path }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.additionalVisit">Additional Visit</span></dt>
+                <dd>
+                    <span>{{ maintenance.additionalVisit }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.drillRequired">Drill Required</span></dt>
+                <dd>
+                    <span>{{ maintenance.drillRequired }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.siteDescription">Site Description</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.SiteDescriptionType.' + maintenance.siteDescription }}">{{ maintenance.siteDescription }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.bearing">Bearing</span></dt>
+                <dd>
+                    <span>{{ maintenance.bearing }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.side">Side</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.SideType.' + maintenance.side }}">{{ maintenance.side }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.treeSpecies">Tree Species</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'wildlifeApp.TreeSpeciesType.' + maintenance.treeSpecies }}">{{ maintenance.treeSpecies }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.height">Height</span></dt>
+                <dd>
+                    <span>{{ maintenance.height }}</span>
+                </dd>
+                <dt><span jhiTranslate="wildlifeApp.maintenance.comments">Comments</span></dt>
+                <dd>
+                    <span>{{ maintenance.comments }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/maintenance', maintenance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

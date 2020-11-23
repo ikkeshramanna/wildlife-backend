@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Sighting.
+    -->
+    <changeSet id="20201123092101-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="birds_identified_id"
+                                 baseTableName="sighting"
+                                 constraintName="fk_sighting_birds_identified_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="birds_identified"/>
+
+        <addForeignKeyConstraint baseColumnNames="eggs_and_chick_id"
+                                 baseTableName="sighting"
+                                 constraintName="fk_sighting_eggs_and_chick_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="eggs_and_chick"/>
+
+        <addForeignKeyConstraint baseColumnNames="feeding_observation_id"
+                                 baseTableName="sighting"
+                                 constraintName="fk_sighting_feeding_observation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="feeding_observation"/>
+
+        <addForeignKeyConstraint baseColumnNames="nest_site_overview_id"
+                                 baseTableName="sighting"
+                                 constraintName="fk_sighting_nest_site_overview_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nest_site_overview"/>
+
+        <addForeignKeyConstraint baseColumnNames="maintenance_id"
+                                 baseTableName="sighting"
+                                 constraintName="fk_sighting_maintenance_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="maintenance"/>
+
+        <addForeignKeyConstraint baseColumnNames="ringing_morphs_id"
+                                 baseTableName="sighting"
+                                 constraintName="fk_sighting_ringing_morphs_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ringing_morphs"/>
+
+        <addForeignKeyConstraint baseColumnNames="observation_location_id"
+                                 baseTableName="sighting"
+                                 constraintName="fk_sighting_observation_location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="observation_location"/>
+
+        <addForeignKeyConstraint baseColumnNames="species_id"
+                                 baseTableName="sighting"
+                                 constraintName="fk_sighting_species_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="species"/>
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="sighting"
+                                 constraintName="fk_sighting_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="tagged_animal_id"
+                                 baseTableName="sighting"
+                                 constraintName="fk_sighting_tagged_animal_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tagged_animal"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="wildlifeApp.ringingMorphs.home.title">Ringing Morphs</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ringing-morphs" [routerLink]="['/ringing-morphs/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="wildlifeApp.ringingMorphs.home.createLabel">
+            Create a new Ringing Morphs
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="ringingMorphs?.length === 0">
+        <span jhiTranslate="wildlifeApp.ringingMorphs.home.notFound">No ringingMorphs found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="ringingMorphs && ringingMorphs.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.mkType">Mk Type</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.reasonForCapture">Reason For Capture</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.captureMethod">Capture Method</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.age">Age</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.weight">Weight</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.head">Head</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.exposedCulmen">Exposed Culmen</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.culmenToSkull">Culmen To Skull</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.wing">Wing</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.p8">P 8</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.p8Brush">P 8 Brush</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.tail">Tail</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.tailBrush">Tail Brush</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.tarsusLength">Tarsus Length</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.ringingMorphs.comments">Comments</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ringingMorphs of ringingMorphs ;trackBy: trackId">
+                    <td><a [routerLink]="['/ringing-morphs', ringingMorphs.id, 'view']">{{ ringingMorphs.id }}</a></td>
+                    <td jhiTranslate="{{ 'wildlifeApp.MkType.' + ringingMorphs.mkType }}">{{ ringingMorphs.mkType }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.ReasonForCaptureType.' + ringingMorphs.reasonForCapture }}">{{ ringingMorphs.reasonForCapture }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.CaptureMethodType.' + ringingMorphs.captureMethod }}">{{ ringingMorphs.captureMethod }}</td>
+                    <td>{{ ringingMorphs.name }}</td>
+                    <td>{{ ringingMorphs.age }}</td>
+                    <td>{{ ringingMorphs.weight }}</td>
+                    <td>{{ ringingMorphs.head }}</td>
+                    <td>{{ ringingMorphs.exposedCulmen }}</td>
+                    <td>{{ ringingMorphs.culmenToSkull }}</td>
+                    <td>{{ ringingMorphs.wing }}</td>
+                    <td>{{ ringingMorphs.p8 }}</td>
+                    <td>{{ ringingMorphs.p8Brush }}</td>
+                    <td>{{ ringingMorphs.tail }}</td>
+                    <td>{{ ringingMorphs.tailBrush }}</td>
+                    <td>{{ ringingMorphs.tarsusLength }}</td>
+                    <td>{{ ringingMorphs.comments }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/ringing-morphs', ringingMorphs.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/ringing-morphs', ringingMorphs.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(ringingMorphs)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

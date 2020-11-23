@@ -1,0 +1,10 @@
+{
+  "wildlifeApp": {
+    "BreedAttemptType": {
+      "null": "",
+      "YES": "YES",
+      "NO": "NO",
+      "UNKNOWN": "UNKNOWN"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "wildlifeApp": {
+    "VisitPurposeType": {
+      "null": "",
+      "OPPORTUNISTIC": "OPPORTUNISTIC",
+      "PRE_SEASON": "PRE_SEASON",
+      "EGG_CHECK": "EGG_CHECK",
+      "HATCH_CHECK": "HATCH_CHECK",
+      "RINGING": "RINGING",
+      "MAINTENANCE": "MAINTENANCE",
+      "IDENTIFYING_PAIR": "IDENTIFYING_PAIR"
+    }
+  }
+}

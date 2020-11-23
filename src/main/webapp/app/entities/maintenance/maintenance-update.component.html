@@ -1,0 +1,262 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-maintenance-heading" jhiTranslate="wildlifeApp.maintenance.home.createOrEditLabel">Create or edit a Maintenance</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.struts" for="field_struts">Struts</label>
+                    <select class="form-control" name="struts" formControlName="struts" id="field_struts">
+                        <option value="GOOD">{{ 'wildlifeApp.StrutType.GOOD' | translate }}</option>
+                        <option value="NEEDS_REPLACING_IMMEDIATELY">{{ 'wildlifeApp.StrutType.NEEDS_REPLACING_IMMEDIATELY' | translate }}</option>
+                        <option value="NEEDS_REPLACING_END_OF_SEASON">{{ 'wildlifeApp.StrutType.NEEDS_REPLACING_END_OF_SEASON' | translate }}</option>
+                        <option value="TEMPORARY_FIX_DONE">{{ 'wildlifeApp.StrutType.TEMPORARY_FIX_DONE' | translate }}</option>
+                        <option value="LONG_TERM_FIX_DONE">{{ 'wildlifeApp.StrutType.LONG_TERM_FIX_DONE' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('struts')!.invalid && (editForm.get('struts')!.dirty || editForm.get('struts')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('struts')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.boxCondition" for="field_boxCondition">Box Condition</label>
+                    <select class="form-control" name="boxCondition" formControlName="boxCondition" id="field_boxCondition">
+                        <option value="GOOD">{{ 'wildlifeApp.BoxConditionType.GOOD' | translate }}</option>
+                        <option value="NEEDS_FIXING">{{ 'wildlifeApp.BoxConditionType.NEEDS_FIXING' | translate }}</option>
+                        <option value="NEEDS_REPLACING_NEXT_SEASON">{{ 'wildlifeApp.BoxConditionType.NEEDS_REPLACING_NEXT_SEASON' | translate }}</option>
+                        <option value="NEEDS_REPLACING_IMMEDIATELY">{{ 'wildlifeApp.BoxConditionType.NEEDS_REPLACING_IMMEDIATELY' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('boxCondition')!.invalid && (editForm.get('boxCondition')!.dirty || editForm.get('boxCondition')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('boxCondition')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.beePlastic" for="field_beePlastic">Bee Plastic</label>
+                    <select class="form-control" name="beePlastic" formControlName="beePlastic" id="field_beePlastic">
+                        <option value="PRESENT">{{ 'wildlifeApp.BeePlasticType.PRESENT' | translate }}</option>
+                        <option value="NEEDS_ADDING">{{ 'wildlifeApp.BeePlasticType.NEEDS_ADDING' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('beePlastic')!.invalid && (editForm.get('beePlastic')!.dirty || editForm.get('beePlastic')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('beePlastic')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.hatch" for="field_hatch">Hatch</label>
+                    <select class="form-control" name="hatch" formControlName="hatch" id="field_hatch">
+                        <option value="GOOD">{{ 'wildlifeApp.HatchType.GOOD' | translate }}</option>
+                        <option value="NEEDS_EYELETS">{{ 'wildlifeApp.HatchType.NEEDS_EYELETS' | translate }}</option>
+                        <option value="NEEDS_METAL_BAR">{{ 'wildlifeApp.HatchType.NEEDS_METAL_BAR' | translate }}</option>
+                        <option value="NEEDS_FILING">{{ 'wildlifeApp.HatchType.NEEDS_FILING' | translate }}</option>
+                        <option value="ADDED_EYELETS">{{ 'wildlifeApp.HatchType.ADDED_EYELETS' | translate }}</option>
+                        <option value="ADDED_METAL_BAR">{{ 'wildlifeApp.HatchType.ADDED_METAL_BAR' | translate }}</option>
+                        <option value="FILED_HATCH">{{ 'wildlifeApp.HatchType.FILED_HATCH' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('hatch')!.invalid && (editForm.get('hatch')!.dirty || editForm.get('hatch')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('hatch')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.steps" for="field_steps">Steps</label>
+                    <select class="form-control" name="steps" formControlName="steps" id="field_steps">
+                        <option value="ADDED_1">{{ 'wildlifeApp.StepsType.ADDED_1' | translate }}</option>
+                        <option value="ADDED_2">{{ 'wildlifeApp.StepsType.ADDED_2' | translate }}</option>
+                        <option value="ADDED_3">{{ 'wildlifeApp.StepsType.ADDED_3' | translate }}</option>
+                        <option value="ADDED_4">{{ 'wildlifeApp.StepsType.ADDED_4' | translate }}</option>
+                        <option value="ADDED_5">{{ 'wildlifeApp.StepsType.ADDED_5' | translate }}</option>
+                        <option value="NEEDS_1">{{ 'wildlifeApp.StepsType.NEEDS_1' | translate }}</option>
+                        <option value="NEEDS_2">{{ 'wildlifeApp.StepsType.NEEDS_2' | translate }}</option>
+                        <option value="NEEDS_3">{{ 'wildlifeApp.StepsType.NEEDS_3' | translate }}</option>
+                        <option value="NEEDS_4">{{ 'wildlifeApp.StepsType.NEEDS_4' | translate }}</option>
+                        <option value="NEEDS_5">{{ 'wildlifeApp.StepsType.NEEDS_5' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.handholds" for="field_handholds">Handholds</label>
+                    <select class="form-control" name="handholds" formControlName="handholds" id="field_handholds">
+                        <option value="ADDED_1">{{ 'wildlifeApp.HandHoldsType.ADDED_1' | translate }}</option>
+                        <option value="ADDED_2">{{ 'wildlifeApp.HandHoldsType.ADDED_2' | translate }}</option>
+                        <option value="ADDED_3">{{ 'wildlifeApp.HandHoldsType.ADDED_3' | translate }}</option>
+                        <option value="NEEDS_1">{{ 'wildlifeApp.HandHoldsType.NEEDS_1' | translate }}</option>
+                        <option value="NEEDS_2">{{ 'wildlifeApp.HandHoldsType.NEEDS_2' | translate }}</option>
+                        <option value="NEEDS_3">{{ 'wildlifeApp.HandHoldsType.NEEDS_3' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.treeNeedsReplacing" for="field_treeNeedsReplacing">Tree Needs Replacing</label>
+                    <input type="text" class="form-control" name="treeNeedsReplacing" id="field_treeNeedsReplacing"
+                           formControlName="treeNeedsReplacing"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.boxNeedsReplacing" for="field_boxNeedsReplacing">Box Needs Replacing</label>
+                    <input type="text" class="form-control" name="boxNeedsReplacing" id="field_boxNeedsReplacing"
+                           formControlName="boxNeedsReplacing"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.clearing" for="field_clearing">Clearing</label>
+                    <select class="form-control" name="clearing" formControlName="clearing" id="field_clearing">
+                        <option value="GOOD">{{ 'wildlifeApp.ClearingType.GOOD' | translate }}</option>
+                        <option value="DONE">{{ 'wildlifeApp.ClearingType.DONE' | translate }}</option>
+                        <option value="NEEDS_SOME_CLEARING">{{ 'wildlifeApp.ClearingType.NEEDS_SOME_CLEARING' | translate }}</option>
+                        <option value="NEEDS_BIG_CLEARING">{{ 'wildlifeApp.ClearingType.NEEDS_BIG_CLEARING' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('clearing')!.invalid && (editForm.get('clearing')!.dirty || editForm.get('clearing')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('clearing')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.path" for="field_path">Path</label>
+                    <select class="form-control" name="path" formControlName="path" id="field_path">
+                        <option value="GOOD">{{ 'wildlifeApp.PathType.GOOD' | translate }}</option>
+                        <option value="DONE">{{ 'wildlifeApp.PathType.DONE' | translate }}</option>
+                        <option value="NEEDS_SOME_CLEARING">{{ 'wildlifeApp.PathType.NEEDS_SOME_CLEARING' | translate }}</option>
+                        <option value="NEEDS_BIG_CLEARING">{{ 'wildlifeApp.PathType.NEEDS_BIG_CLEARING' | translate }}</option>
+                        <option value="NEEDS_TAGGING">{{ 'wildlifeApp.PathType.NEEDS_TAGGING' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('path')!.invalid && (editForm.get('path')!.dirty || editForm.get('path')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('path')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.additionalVisit" for="field_additionalVisit">Additional Visit</label>
+                    <input type="text" class="form-control" name="additionalVisit" id="field_additionalVisit"
+                           formControlName="additionalVisit"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.drillRequired" for="field_drillRequired">Drill Required</label>
+                    <input type="text" class="form-control" name="drillRequired" id="field_drillRequired"
+                           formControlName="drillRequired"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.siteDescription" for="field_siteDescription">Site Description</label>
+                    <select class="form-control" name="siteDescription" formControlName="siteDescription" id="field_siteDescription">
+                        <option value="ACCURATE">{{ 'wildlifeApp.SiteDescriptionType.ACCURATE' | translate }}</option>
+                        <option value="NOT_GREAT">{{ 'wildlifeApp.SiteDescriptionType.NOT_GREAT' | translate }}</option>
+                        <option value="CHANGED">{{ 'wildlifeApp.SiteDescriptionType.CHANGED' | translate }}</option>
+                        <option value="NEEDS_DOING">{{ 'wildlifeApp.SiteDescriptionType.NEEDS_DOING' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.bearing" for="field_bearing">Bearing</label>
+                    <input type="text" class="form-control" name="bearing" id="field_bearing"
+                           formControlName="bearing"/>
+                    <div *ngIf="editForm.get('bearing')!.invalid && (editForm.get('bearing')!.dirty || editForm.get('bearing')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('bearing')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.side" for="field_side">Side</label>
+                    <select class="form-control" name="side" formControlName="side" id="field_side">
+                        <option value="RIGHT">{{ 'wildlifeApp.SideType.RIGHT' | translate }}</option>
+                        <option value="LEFT">{{ 'wildlifeApp.SideType.LEFT' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.treeSpecies" for="field_treeSpecies">Tree Species</label>
+                    <select class="form-control" name="treeSpecies" formControlName="treeSpecies" id="field_treeSpecies">
+                        <option value="CAN_PAN">{{ 'wildlifeApp.TreeSpeciesType.CAN_PAN' | translate }}</option>
+                        <option value="CAS_ORI">{{ 'wildlifeApp.TreeSpeciesType.CAS_ORI' | translate }}</option>
+                        <option value="DEAD">{{ 'wildlifeApp.TreeSpeciesType.DEAD' | translate }}</option>
+                        <option value="DIO_TES">{{ 'wildlifeApp.TreeSpeciesType.DIO_TES' | translate }}</option>
+                        <option value="EUC_TER">{{ 'wildlifeApp.TreeSpeciesType.EUC_TER' | translate }}</option>
+                        <option value="EUG_SPP">{{ 'wildlifeApp.TreeSpeciesType.EUG_SPP' | translate }}</option>
+                        <option value="LAB_GLA">{{ 'wildlifeApp.TreeSpeciesType.LAB_GLA' | translate }}</option>
+                        <option value="LAB_REV">{{ 'wildlifeApp.TreeSpeciesType.LAB_REV' | translate }}</option>
+                        <option value="MIM_SPP">{{ 'wildlifeApp.TreeSpeciesType.MIM_SPP' | translate }}</option>
+                        <option value="MIM_MAX">{{ 'wildlifeApp.TreeSpeciesType.MIM_MAX' | translate }}</option>
+                        <option value="PRO_OBT">{{ 'wildlifeApp.TreeSpeciesType.PRO_OBT' | translate }}</option>
+                        <option value="PRO_SPP">{{ 'wildlifeApp.TreeSpeciesType.PRO_SPP' | translate }}</option>
+                        <option value="SEC_DUR">{{ 'wildlifeApp.TreeSpeciesType.SEC_DUR' | translate }}</option>
+                        <option value="SID_EPU">{{ 'wildlifeApp.TreeSpeciesType.SID_EPU' | translate }}</option>
+                        <option value="SID_GRA">{{ 'wildlifeApp.TreeSpeciesType.SID_GRA' | translate }}</option>
+                        <option value="SID_PUB">{{ 'wildlifeApp.TreeSpeciesType.SID_PUB' | translate }}</option>
+                        <option value="SYZ_GLO">{{ 'wildlifeApp.TreeSpeciesType.SYZ_GLO' | translate }}</option>
+                        <option value="SYZ_SPP">{{ 'wildlifeApp.TreeSpeciesType.SYZ_SPP' | translate }}</option>
+                        <option value="SID_SPP">{{ 'wildlifeApp.TreeSpeciesType.SID_SPP' | translate }}</option>
+                        <option value="MANGO">{{ 'wildlifeApp.TreeSpeciesType.MANGO' | translate }}</option>
+                        <option value="UNKNOWN">{{ 'wildlifeApp.TreeSpeciesType.UNKNOWN' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('treeSpecies')!.invalid && (editForm.get('treeSpecies')!.dirty || editForm.get('treeSpecies')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('treeSpecies')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.height" for="field_height">Height</label>
+                    <input type="number" class="form-control" name="height" id="field_height"
+                           formControlName="height"/>
+                    <div *ngIf="editForm.get('height')!.invalid && (editForm.get('height')!.dirty || editForm.get('height')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('height')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('height')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.maintenance.comments" for="field_comments">Comments</label>
+                    <input type="text" class="form-control" name="comments" id="field_comments"
+                           formControlName="comments"/>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

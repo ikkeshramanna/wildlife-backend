@@ -1,0 +1,34 @@
+{
+  "name": "CompetitorAction",
+  "fields": [
+    {
+      "fieldName": "action",
+      "fieldType": "ActionType",
+      "fieldValues": "CARBARYL_ADDED,EGGS_DISPATCHED,ADULTS_REMOVED,WHITE_TAILED_TROPICBIRD_MODIFICATION_ADDED,BLACK_PLASTIC_PLACED_TO_STOP_BEES",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "competitors",
+      "otherEntityRelationshipName": "competitorAction",
+      "relationshipName": "competitors",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201123092901",
+  "entityTableName": "competitor_action",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,45 @@
+{
+  "name": "ObservationLocation",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gpsLatitude",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gpsCoordinate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "locationName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "addDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updateDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20201123093801",
+  "entityTableName": "observation_location",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

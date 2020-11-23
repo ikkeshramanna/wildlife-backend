@@ -1,0 +1,11 @@
+{
+  "wildlifeApp": {
+    "BreedingStageType": {
+      "null": "",
+      "EGG": "EGG",
+      "CHICK": "CHICK",
+      "FLEDGED": "FLEDGED",
+      "UNKNOWN": "UNKNOWN"
+    }
+  }
+}

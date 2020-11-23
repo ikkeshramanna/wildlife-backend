@@ -1,0 +1,697 @@
+
+entity Country {
+  countryName String required,
+  addDate LocalDate required
+}
+
+entity Employee {
+ name String required,
+ Surname String required,
+ dob LocalDate required,
+ address String required,
+ email String required,
+ addDate LocalDate required,
+ updateDate LocalDate required,
+ mobileNumber String required
+ 
+}
+
+entity Sighting{
+  nestSite NestSiteType required,
+  area AreaType required,
+  nestType NestType,
+  year Integer,
+  month Integer,
+  date LocalDate,
+  observer String required,
+  gpsLatitude String,
+  gpsCoordinate String ,
+  locationName String,
+  addDate LocalDate required,
+  updateDate LocalDate required
+}
+
+entity BirdsIdentified {
+	seenDuring SeenDuringType required,
+    type BirdType required,
+    sex SexType required,
+    status StatusType required,
+    birdLocation BirdLocationType required,
+    southing String,
+    easting String,
+    comments String,
+    colorComboL String required,
+    colorComboR String required,
+    birdIRN String
+}
+
+entity BirdBehaviour {
+	behaviour BirdBehaviourType required
+}
+
+entity EggsAndChick {
+	clutchNumber String,
+    eggsPresent Boolean required,
+    chicksPresent Boolean required,
+    photoTaken String,
+    comments String
+}
+
+entity Egg {
+	eggNumber String,
+    eggStatus EggStatusType,
+    eggLayDate LocalDate
+}
+
+entity Chick {
+	chickNumber Integer required,
+    hatchDate LocalDate required,
+    chickStatus ChicKStatusType required,
+    chickAge Integer required,
+    chickActive String required,
+    chickCondition ChickConditionType required,
+    chickRinged String required,
+    bloodSample String required,
+}
+
+entity Competitors {
+	mkAround String,
+    noOfIndividuals Integer required,
+    competitorBehaviour CompetitorBehaviourType required,
+    competitorLocation CompetitorLocationType required,
+}
+
+entity CompetitorImpactOnMk {
+	impact ImpactOnMKType required
+}
+
+entity CompetitorAction {
+	action ActionType required
+}
+
+entity FeedingObservation {
+	noFieldWorkers Integer required,
+    type FeedingObservationType required,
+	breedingAttempt BreedAttemptType,
+    breedingStage BreedingStageType required,
+    breedingOutcome BreedingOutcomeType,
+    preyItem PreyItemType required,
+    preySpecies PreySpeciesType required,
+    time String,
+    cloud CloudType required,
+    wind WindType required,
+    rain RainType required,
+    outcome FeedingObservationOutcomeType required,
+    comment String
+}
+
+entity NestSiteOverview {
+    numberPeople Integer required,
+    purposeOfVisit VisitPurposeType required,
+    signsOfUse UseSignType required,
+    nestingSubstrate String,
+    maintenanceDone String,
+    maintenanceRequired String,
+    comments String
+}
+
+entity Maintenance {
+	struts StrutType required,
+    boxCondition BoxConditionType required,
+    beePlastic BeePlasticType required,
+    hatch HatchType required,
+    steps StepsType,
+    handholds HandHoldsType,
+    treeNeedsReplacing String,
+    boxNeedsReplacing String,
+    clearing ClearingType  required,
+    path PathType  required,
+    additionalVisit String,
+    drillRequired String,
+    siteDescription SiteDescriptionType,
+    bearing String  required,
+    side SideType,
+    treeSpecies TreeSpeciesType required,
+    height Float required,
+    comments String
+}
+
+entity RingingMorphs {
+	mkType MkType required,
+    reasonForCapture ReasonForCaptureType required,
+    captureMethod CaptureMethodType required,
+    name String required,
+    age Integer required,
+    weight Double required,
+    head Double required,
+    exposedCulmen Double required,
+    culmenToSkull Double required
+    wing Double required,
+    p8 Double required,
+    p8Brush Double required,
+    tail Double required,
+    tailBrush Double required,
+    tarsusLength Double required,
+    comments String
+}
+
+entity SpeciesCategory{
+  name String required,
+  speciesCategoryType SpeciesCategoryType required,
+  picture ImageBlob required,
+  description String required,
+  addDate LocalDate required,
+  updateDate LocalDate required
+}
+
+entity Species {
+  picture ImageBlob required,
+  feedingTraitType FeedingTraitType required,
+  speciesType String required,
+  commonName String required,
+  latinName String required,
+  description String required,
+  isIndigenous Boolean,
+  addDate LocalDate required,
+  updateDate LocalDate required
+}
+
+entity TaggedAnimal {
+	name String,
+    dateOfBirth LocalDate,
+    dateOfTagging LocalDate,
+    physicalTraits String,
+    tagType TagType,
+    dateTime LocalDate,
+    sexType TaggedAnimalSexType,
+    updateDate LocalDate, 
+}
+
+entity Photo {
+	title String,
+    description String,
+    image ImageBlob,
+    addDate LocalDate,
+    updateDate LocalDate
+}
+
+entity ObservationLocation {
+	name String,
+    gpsLatitude String,
+    gpsCoordinate String,
+    locationName String,
+    description String,
+    addDate LocalDate,
+    updateDate LocalDate
+}
+
+
+
+
+enum SpeciesCategoryType {
+  FAUNA, FLORA
+}
+
+enum AgeGroupType{
+  ADULT , JUVENILE , UNKNOWN
+}
+
+enum VisitPurposeType {
+	OPPORTUNISTIC,
+    PRE_SEASON,
+    EGG_CHECK,
+    HATCH_CHECK,
+    RINGING,
+    MAINTENANCE,
+    IDENTIFYING_PAIR
+}
+
+enum NestSiteType {
+	BAMBOUS_VIRIEUX_3, CAMIZARD_CHARIZARD_CLIFF, CHAMPAGNE_CLIFF, 
+    CHIMNEY_CLIFF, DOMAINE_DE_LETOILE_2, DOMAINE_DE_LETOILE_3, 
+    DOMAINE_DE_LETOILE_4, DOMAINE_DE_LETOILE_5, 
+    DOMAINE_DE_LETOILE_8, DOMAINE_DE_LETOILE_9, 
+    DOMAINE_DU_CHASSEUR_5, DOMAINE_DU_CHASSEUR_7, 
+    DOMAINE_DU_CHASSEUR_8, DOMAINE_DU_CHASSEUR_CABIN, 
+    DOMAINE_DU_CHASSEUR_CAR_PARK, DOMAINE_DU_CHASSEUR_OFFICE, 
+    DOMAINE_DU_CHASSEUR_PLASTIC, EAST_ROCK, FERNEY_1, FERNEY_10, 
+    FERNEY_11, FERNEY_12, FERNEY_13, FERNEY_14, FERNEY_2A, 
+    FERNEY_2C, FERNEY_3, FERNEY_4, FERNEY_5, FERNEY_6, FERNEY_7, 
+    FERNEY_8, FERNEY_9, FERNEY_CLIFF, FERNEY_DUPONT, 
+    FERNEY_ENCLOSURE, FERNEY_INGAM, FERNEY_MIDDLE, FERNEY_REDUIT, 
+    LE_VALLON_13, LE_VALLON_6, MAURITANIA, MOUNT_CAMIZARD_1A, 
+    MOUNT_CAMIZARD_2A, MOUNT_CAMIZARD_2B, MOUNT_CAMIZARD_4, 
+    MOUNT_CAMIZARD_5, NEW_HOPE, OWENS_HOUSE, PETIT_FOND_1, 
+    PETIT_FOND_2, PETIT_PARC, POWER_STATION_CLIFF, 
+    RICHE_EN_EAU_11, RICHE_EN_EAU_13, RICHE_EN_EAU_2, 
+    RICHE_EN_EAU_3, RICHE_EN_EAU_4, RICHE_EN_EAU_9, 
+    UNDETECTED, VALLEE_DE_LEST, YLANG_CHASSE, YLANG_FOREST, 
+    ISENDGAARD, DRAGONS_VIEW, KOALA_CLIFF, COPSHOP_CLIFF, 
+    CAT_AND_MOUSE
+}
+
+enum AreaType {
+	FERNEY, LE_VALLON, DOMAINE_DE_LETOILE, 
+    DOMAINE_DU_CHASSEUR, VALLEE_DE_LEST, 
+    RICHE_EN_EAU, BAMBOUS_VIRIEUX, LION_MOUNTAIN,
+    BAMBOUS_PINNACLE
+}
+
+enum NestType {
+	WOODBOX, WHITE_RP_BOX, BLACK_RP_BOX, PVC_BOX, CLIFF, TREE_CAVITY 
+}
+
+enum VisitPurposeType {
+	OPPORTUNISTIC,
+    PRE_SEASON,
+    EGG_CHECK,
+    HATCH_CHECK,
+    RINGING,
+    MAINTENANCE,
+    IDENTIFYING_PAIR
+}
+
+enum SeenDuringType {
+	OPPORTUNISTIC, PRE_SEASON, EGG_CHECK, HATCH_CHECK,
+    RINGING, FLEDGE_CHECK, MAINTENANCE, WATCH 
+}
+
+enum UseSignType {
+	MUTES, SCRAPE, SCRAPE_FLATTENED, RECENT_SCRAPE, DOWN_FEATHERS,
+    FEATHERS, PELLETS, MULTIPLE_SIGNS
+}
+
+enum BirdType {
+	UNKNOWN,
+	SINGLE_BIRD,
+	ONE_OF_BREEDING_PAIR,
+	POTENTIAL_BREEDING_BIRD
+}
+
+enum SexType {
+	MALE,
+    FEMALE,
+    JUVENILE,
+    FLEDGLING,
+    UNKNOWN
+}
+
+enum StatusType {
+	MISSING,
+	ASSUMED_DEAD,
+	UNKNOWN
+}
+
+enum BirdLocationType {
+	IN_BOX_CAVITY,
+	IN_BOX_CAVITY_THEN_LEFT,
+	IN_BOX_CAVITY_WHEN_ACCESSING,
+	IN_NEST_SITE_TREE,
+	NEAR_CAVITY,
+	WITHIN_25M_OF_SITE,
+	WITHIN_50M_OF_SITE
+}
+
+enum BirdBehaviourType {
+	FLEW_AWAY_FROM_SITE,
+	IN_NEST_SITE,
+	PERCHING,
+	FLYING,
+	BEGGING_TO_MALE,
+	FED_BY_MALE,
+	ALLOPREENING_MALE,
+	COPULATION_WITH_MALE,
+	FEEDING_THE_FEMALE,
+	ALLOPREENING_FEMALE,
+	COPULATION_WITH_FEMALE,
+	BRINGING_FOOD_ITEM,
+	FEEDING,
+	HUNTING,
+	DEFENDING_NEST_SITE,
+	CHASING_OTHER_MK,
+	FIGHTING_OTHER_MK,
+	CHASING_COMPETITORS,
+	FIGHTING_COMPETITORS,
+	INTERACTION_WITH_CHICKS,
+	INTERACTION_WITH_FLEDGLINGS,
+	CIRCLING_DISPLAYING_ABOVE_SITE
+}
+
+enum EggStatusType {
+	FERTILE,
+    INFERTILE,
+    UNKNOWN,
+    DEAD_EMBRYO,
+    DAMAGED,
+    HATCHED
+}
+
+enum CluctchNumberType {
+	FIRST,
+    SECOND,
+    UNK
+}
+
+enum EggStatusType {
+	FERTILE,
+    INFERTILE,
+    UNKNOWN,
+    DEAD_EMBRYO,
+    DAMAGED,
+    HATCHED
+}
+
+enum ChicKStatusType {
+	ALIVE,
+    FLEDGED,
+    DEAD,
+    UNKNOWN
+}
+
+enum ChickConditionType {
+	GOOD,
+    MEDIUM,
+    BAD,
+    UNK
+}
+
+enum CompetitorBehaviourType {
+	NO_INTERACTION,
+    CALLING_AT_MK,
+    TRYING_TO_ENTER_MK_NEST,
+	USING_MK_NEST,
+    CHASING_MK,
+    FIGHTING_MK
+}
+
+enum CompetitorLocationType {
+	TRACES_IN_NEST,
+    IN_NEST,
+    ON_BOX_NEAR_CAVITY,
+	ON_NEST_TREE,
+    IN_CLEARING,
+    OUTSIDE_CLEARING
+}
+
+enum ImpactOnMKType {
+	UNKNOWN,
+    BREEDING_MALE_MK_DELAYED_ENTERING_NEST,
+	BREEDING_FEMALE_MK_DELAYED_ENTERING_NEST,
+    BREEDING_MALE_MK_DELAYED_LEAVING_NEST,
+	BREEDING_FEMALE_MK_DELAYED_LEAVING_NEST,
+    MK_CANT_ACCESS_NEST,
+    MK_CHASING_COMPETITOR,
+	BREEDING_MALE_MK_CHASING_COMPETITOR,
+    BREEDING_FEMALE_MK_CHASING_COMPETITOR,
+	MK_BREEDING_PAIR_CHASING_COMPETITOR,
+	MK_FIGHTING_COMPETITOR,
+	BREEDING_MALE_MK_FIGHTING_COMPETITOR,
+	BREEDING_FEMALE_MK_FIGHTING_COMPETITOR,
+	NEST_SITE_OCCUPIED
+}
+
+enum ActionType {
+	CARBARYL_ADDED,
+	EGGS_DISPATCHED,
+	ADULTS_REMOVED,
+	WHITE_TAILED_TROPICBIRD_MODIFICATION_ADDED,
+	BLACK_PLASTIC_PLACED_TO_STOP_BEES
+}
+
+enum FeedingObservationType {
+	FOOD_ITEM_PASS,
+    NEST_SITE_REMAINS
+}
+
+enum BreedAttemptType {
+	YES,
+    NO,
+    UNKNOWN
+}
+
+enum BreedingStageType {
+	EGG,
+    CHICK,
+    FLEDGED,
+    UNKNOWN
+}
+
+enum PreyItemType {
+	UNKNOWN,
+	GECKO,
+	AGAMID,
+	BIRD,
+	SHREW,
+	RAT,
+	INSECT
+
+}
+
+enum PreySpeciesType {
+	UNKNOWN,
+	PHELSUMA_SPP,
+	PHELSUMA_CEPEDIANA,
+	PHELSUMA_ORNATA,
+	PHELSUMA_GUMBEAUI,
+	PHELSUMA_ROSAGULARIS,
+	HOUSE_GECKO,
+	AGAMID_LIZARD,
+	GREY_WHITE_EYE,
+	MADAGASCAR_FODY,
+	RED_WHISKERED_BULBUL,
+	WAXBILL,
+	ZEBRA_DOVE,
+	YELLOW_FRONTED_CANARY,
+	ASIAN_MUSK_SHREW,
+	BLACK_RAT,
+	BROWN_RAT,
+	DRAGONFLY,
+	STICK_INSECT,
+	CICADA
+
+}
+
+enum CloudType {
+	OVERCAST,
+    CLOUDY,
+    CLEAR
+}
+
+enum WindType {
+	CALM,
+    BREEZE,
+    WINDY
+}
+
+enum RainType {
+	HEAVY,
+    LIGHT,
+    NO
+}
+
+enum BreedingOutcomeType {
+    ONGOING,
+    FLEDGED,
+    FLEDGED_EGG_STAGE,
+    FLEDGED_CHICK_STAGE,
+    UNKNOWN
+}
+
+enum FeedingObservationOutcomeType {
+	UNKNOWN,
+	REMAINS_IN_NEST_SITE,
+	REMAINS_NEAR_NEST_SITE,
+	PASSED_TO_FEMALE,
+	EATEN_BY_FEMALE,
+	CACHED_BY_MALE,
+	CACHED_BY_FEMALE,
+	EATEN_BY_MALE,
+	PASSED_TO_CHICKS,
+	PASSED_TO_FLEDGLINGS,
+	NOT_DELIVERED_TO_CHICKS_ACCESSING,
+	NOT_DELIVERED_TO_CHICKS_RINGING,
+	NOT_DELIVERED_TO_FEMALE_ACCESSING
+}
+
+enum UseSignType {
+	MUTES,
+    SCRAPE,
+    SCRAPE_FLATTENED,
+    RECENT_SCRAPE
+    DOWN_FEATHERS,
+    FEATHERS,
+    PELLETS,
+    MULTIPLE_SIGNS
+}
+
+enum StrutType {
+	GOOD,
+    NEEDS_REPLACING_IMMEDIATELY,
+    NEEDS_REPLACING_END_OF_SEASON,
+	TEMPORARY_FIX_DONE,
+    LONG_TERM_FIX_DONE
+}
+
+enum BoxConditionType {
+	GOOD,
+    NEEDS_FIXING,
+    NEEDS_REPLACING_NEXT_SEASON,
+    NEEDS_REPLACING_IMMEDIATELY
+}
+
+enum BeePlasticType {
+	PRESENT,
+    NEEDS_ADDING
+}
+
+enum HatchType {
+	GOOD,
+    NEEDS_EYELETS,
+    NEEDS_METAL_BAR,
+    NEEDS_FILING,
+	ADDED_EYELETS,
+    ADDED_METAL_BAR,
+    FILED_HATCH
+}
+
+enum StepsType {
+	ADDED_1,
+    ADDED_2,
+    ADDED_3,
+    ADDED_4,
+    ADDED_5,
+	NEEDS_1,
+    NEEDS_2,
+    NEEDS_3,
+    NEEDS_4,
+    NEEDS_5
+}
+
+enum HandHoldsType {
+	ADDED_1,
+    ADDED_2,
+    ADDED_3,
+	NEEDS_1,
+    NEEDS_2,
+    NEEDS_3
+}
+
+enum ClearingType {
+	GOOD,
+    DONE,
+    NEEDS_SOME_CLEARING,
+    NEEDS_BIG_CLEARING
+}
+
+enum PathType {
+	GOOD,
+    DONE,
+    NEEDS_SOME_CLEARING,
+    NEEDS_BIG_CLEARING,
+    NEEDS_TAGGING
+}
+
+enum SiteDescriptionType {
+	ACCURATE,
+    NOT_GREAT,
+    CHANGED,
+    NEEDS_DOING
+}
+
+enum SideType {
+	RIGHT,
+    LEFT
+}
+
+enum TreeSpeciesType {
+	CAN_PAN,
+    CAS_ORI,
+    DEAD,
+    DIO_TES,
+    EUC_TER,
+    EUG_SPP,
+    LAB_GLA, 
+    LAB_REV,
+    MIM_SPP,
+    MIM_MAX,
+    PRO_OBT,
+    PRO_SPP,
+    SEC_DUR,
+    SID_EPU, 
+    SID_GRA,
+    SID_PUB,
+    SYZ_GLO,
+    SYZ_SPP,
+    SID_SPP,
+    MANGO,
+    UNKNOWN
+}
+
+enum MkType {
+	CHICK, JUVENILLE, FLEDGING, ADULT_MALE,
+    ADULT_FEMALE, UNKNOWN
+}
+
+enum ReasonForCaptureType {
+	CHICK_RINGING, UNRINGED, MISSING_RINGS,
+    FADED_RINGS, HEALTH_CHECK
+}
+
+enum CaptureMethodType {
+	NESTLING, INREST, BAL_CHATRI, NOOSE_CARPET
+}
+
+enum FeedingTraitType {
+	OMNIVORE, CARNIVORE, HERBIVORE
+}
+
+enum TaggedAnimalSexType {
+	MALE, FEMALE, UNKNOWN
+}
+
+enum TagType {
+	CHIP, BRACELET, OTHER
+}
+
+enum SightingType {
+	NAKED_EYE, CAMERA, SOUND, RADAR,
+    DRONE, OTHER
+}
+
+
+relationship OneToOne {
+	Sighting to BirdsIdentified,
+    Sighting to EggsAndChick,
+    Sighting to FeedingObservation,
+    Sighting to NestSiteOverview,
+    Sighting to Maintenance,
+    Sighting to RingingMorphs
+}
+
+relationship ManyToMany {
+	BirdsIdentified to BirdBehaviour,
+    Competitors to CompetitorImpactOnMk,
+    Competitors to CompetitorAction,
+    Country to Species
+}
+
+
+relationship OneToMany {
+  Species to TaggedAnimal,
+  Sighting{photos} to Photo,
+  EggsAndChick to Egg,
+  EggsAndChick to Chick,
+  Sighting to Competitors,
+}
+
+relationship ManyToOne {
+	Competitors{competitorSpecies} to Species,
+	Species{speciesCategory} to SpeciesCategory,
+    Sighting{observationLocation} to ObservationLocation,
+
+    Employee{country} to Country,
+    Sighting{species} to Species,
+    TaggedAnimal{taggedAnimal} to Employee,
+    Sighting{employee} to Employee,
+    Sighting{taggedAnimal} to TaggedAnimal
+}

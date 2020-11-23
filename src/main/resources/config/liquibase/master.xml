@@ -14,7 +14,37 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123091901_added_entity_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092001_added_entity_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092101_added_entity_Sighting.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092201_added_entity_BirdsIdentified.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092301_added_entity_BirdBehaviour.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092401_added_entity_EggsAndChick.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092501_added_entity_Egg.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092601_added_entity_Chick.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092701_added_entity_Competitors.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092801_added_entity_CompetitorImpactOnMk.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092901_added_entity_CompetitorAction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123093001_added_entity_FeedingObservation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123093101_added_entity_NestSiteOverview.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123093201_added_entity_Maintenance.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123093301_added_entity_RingingMorphs.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123093401_added_entity_SpeciesCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123093501_added_entity_Species.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123093601_added_entity_TaggedAnimal.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123093701_added_entity_Photo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123093801_added_entity_ObservationLocation.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20201123091901_added_entity_constraints_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092001_added_entity_constraints_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092101_added_entity_constraints_Sighting.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092201_added_entity_constraints_BirdsIdentified.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092501_added_entity_constraints_Egg.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092601_added_entity_constraints_Chick.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123092701_added_entity_constraints_Competitors.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123093501_added_entity_constraints_Species.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123093601_added_entity_constraints_TaggedAnimal.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201123093701_added_entity_constraints_Photo.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

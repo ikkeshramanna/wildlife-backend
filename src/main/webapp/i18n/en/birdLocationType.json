@@ -1,0 +1,14 @@
+{
+  "wildlifeApp": {
+    "BirdLocationType": {
+      "null": "",
+      "IN_BOX_CAVITY": "IN_BOX_CAVITY",
+      "IN_BOX_CAVITY_THEN_LEFT": "IN_BOX_CAVITY_THEN_LEFT",
+      "IN_BOX_CAVITY_WHEN_ACCESSING": "IN_BOX_CAVITY_WHEN_ACCESSING",
+      "IN_NEST_SITE_TREE": "IN_NEST_SITE_TREE",
+      "NEAR_CAVITY": "NEAR_CAVITY",
+      "WITHIN_25M_OF_SITE": "WITHIN_25M_OF_SITE",
+      "WITHIN_50M_OF_SITE": "WITHIN_50M_OF_SITE"
+    }
+  }
+}

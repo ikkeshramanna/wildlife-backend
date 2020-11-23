@@ -1,0 +1,25 @@
+{
+  "wildlifeApp": {
+    "egg": {
+      "home": {
+        "title": "Eggs",
+        "createLabel": "Créer un nouveau Egg",
+        "createOrEditLabel": "Créer ou éditer un Egg",
+        "notFound": "Aucun Egg trouvé"
+      },
+      "created": "Un nouveau Egg a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Egg avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Egg avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Egg {{ id }} ?"
+      },
+      "detail": {
+        "title": "Egg"
+      },
+      "eggNumber": "Egg Number",
+      "eggStatus": "Egg Status",
+      "eggLayDate": "Egg Lay Date",
+      "eggsAndChick": "Eggs And Chick"
+    }
+  }
+}

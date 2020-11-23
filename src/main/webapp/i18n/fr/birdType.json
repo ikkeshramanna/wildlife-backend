@@ -1,0 +1,11 @@
+{
+  "wildlifeApp": {
+    "BirdType": {
+      "null": "",
+      "UNKNOWN": "UNKNOWN",
+      "SINGLE_BIRD": "SINGLE_BIRD",
+      "ONE_OF_BREEDING_PAIR": "ONE_OF_BREEDING_PAIR",
+      "POTENTIAL_BREEDING_BIRD": "POTENTIAL_BREEDING_BIRD"
+    }
+  }
+}

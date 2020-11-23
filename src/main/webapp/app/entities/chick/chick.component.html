@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="wildlifeApp.chick.home.title">Chicks</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-chick" [routerLink]="['/chick/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="wildlifeApp.chick.home.createLabel">
+            Create a new Chick
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="chicks?.length === 0">
+        <span jhiTranslate="wildlifeApp.chick.home.notFound">No chicks found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="chicks && chicks.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.chick.chickNumber">Chick Number</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.chick.hatchDate">Hatch Date</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.chick.chickStatus">Chick Status</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.chick.chickAge">Chick Age</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.chick.chickActive">Chick Active</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.chick.chickCondition">Chick Condition</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.chick.chickRinged">Chick Ringed</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.chick.bloodSample">Blood Sample</span></th>
+                    <th scope="col" ><span jhiTranslate="wildlifeApp.chick.eggsAndChick">Eggs And Chick</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let chick of chicks ;trackBy: trackId">
+                    <td><a [routerLink]="['/chick', chick.id, 'view']">{{ chick.id }}</a></td>
+                    <td>{{ chick.chickNumber }}</td>
+                    <td>{{ chick.hatchDate | date:'mediumDate' }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.ChicKStatusType.' + chick.chickStatus }}">{{ chick.chickStatus }}</td>
+                    <td>{{ chick.chickAge }}</td>
+                    <td>{{ chick.chickActive }}</td>
+                    <td jhiTranslate="{{ 'wildlifeApp.ChickConditionType.' + chick.chickCondition }}">{{ chick.chickCondition }}</td>
+                    <td>{{ chick.chickRinged }}</td>
+                    <td>{{ chick.bloodSample }}</td>
+                    <td>
+                        <div *ngIf="chick.eggsAndChick">
+                            <a [routerLink]="['/eggs-and-chick', chick.eggsAndChick?.id, 'view']" >{{ chick.eggsAndChick?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/chick', chick.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/chick', chick.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(chick)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

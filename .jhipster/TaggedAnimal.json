@@ -1,0 +1,66 @@
+{
+  "name": "TaggedAnimal",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateOfBirth",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateOfTagging",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "physicalTraits",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tagType",
+      "fieldType": "TagType",
+      "fieldValues": "CHIP,BRACELET,OTHER"
+    },
+    {
+      "fieldName": "dateTime",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "sexType",
+      "fieldType": "TaggedAnimalSexType",
+      "fieldValues": "MALE,FEMALE,UNKNOWN"
+    },
+    {
+      "fieldName": "updateDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "taggedAnimal",
+      "relationshipName": "taggedAnimal",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "species",
+      "otherEntityRelationshipName": "taggedAnimal",
+      "relationshipName": "species",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201123093601",
+  "entityTableName": "tagged_animal",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

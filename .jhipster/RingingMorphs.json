@@ -1,0 +1,137 @@
+{
+  "name": "RingingMorphs",
+  "fields": [
+    {
+      "fieldName": "mkType",
+      "fieldType": "MkType",
+      "fieldValues": "CHICK,JUVENILLE,FLEDGING,ADULT_MALE,ADULT_FEMALE,UNKNOWN",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "reasonForCapture",
+      "fieldType": "ReasonForCaptureType",
+      "fieldValues": "CHICK_RINGING,UNRINGED,MISSING_RINGS,FADED_RINGS,HEALTH_CHECK",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "captureMethod",
+      "fieldType": "CaptureMethodType",
+      "fieldValues": "NESTLING,INREST,BAL_CHATRI,NOOSE_CARPET",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "weight",
+      "fieldType": "Double",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "head",
+      "fieldType": "Double",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "exposedCulmen",
+      "fieldType": "Double",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "culmenToSkull",
+      "fieldType": "Double",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "wing",
+      "fieldType": "Double",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "p8",
+      "fieldType": "Double",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "p8Brush",
+      "fieldType": "Double",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "tail",
+      "fieldType": "Double",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "tailBrush",
+      "fieldType": "Double",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "tarsusLength",
+      "fieldType": "Double",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "sighting",
+      "otherEntityRelationshipName": "ringingMorphs",
+      "relationshipName": "sighting",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201123093301",
+  "entityTableName": "ringing_morphs",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

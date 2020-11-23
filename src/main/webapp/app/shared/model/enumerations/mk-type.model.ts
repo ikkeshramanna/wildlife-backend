@@ -1,0 +1,13 @@
+export const enum MkType {
+  CHICK = 'CHICK',
+
+  JUVENILLE = 'JUVENILLE',
+
+  FLEDGING = 'FLEDGING',
+
+  ADULT_MALE = 'ADULT_MALE',
+
+  ADULT_FEMALE = 'ADULT_FEMALE',
+
+  UNKNOWN = 'UNKNOWN',
+}

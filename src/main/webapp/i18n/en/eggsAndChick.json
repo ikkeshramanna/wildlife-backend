@@ -1,0 +1,29 @@
+{
+  "wildlifeApp": {
+    "eggsAndChick": {
+      "home": {
+        "title": "Eggs And Chicks",
+        "createLabel": "Create a new Eggs And Chick",
+        "createOrEditLabel": "Create or edit a Eggs And Chick",
+        "notFound": "No Eggs And Chicks found"
+      },
+      "created": "A new Eggs And Chick is created with identifier {{ param }}",
+      "updated": "A Eggs And Chick is updated with identifier {{ param }}",
+      "deleted": "A Eggs And Chick is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Eggs And Chick {{ id }}?"
+      },
+      "detail": {
+        "title": "Eggs And Chick"
+      },
+      "clutchNumber": "Clutch Number",
+      "eggsPresent": "Eggs Present",
+      "chicksPresent": "Chicks Present",
+      "photoTaken": "Photo Taken",
+      "comments": "Comments",
+      "egg": "Egg",
+      "chick": "Chick",
+      "sighting": "Sighting"
+    }
+  }
+}

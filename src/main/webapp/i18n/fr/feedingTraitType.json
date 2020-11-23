@@ -1,0 +1,10 @@
+{
+  "wildlifeApp": {
+    "FeedingTraitType": {
+      "null": "",
+      "OMNIVORE": "OMNIVORE",
+      "CARNIVORE": "CARNIVORE",
+      "HERBIVORE": "HERBIVORE"
+    }
+  }
+}

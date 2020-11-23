@@ -1,0 +1,64 @@
+{
+  "name": "NestSiteOverview",
+  "fields": [
+    {
+      "fieldName": "numberPeople",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "purposeOfVisit",
+      "fieldType": "VisitPurposeType",
+      "fieldValues": "OPPORTUNISTIC,PRE_SEASON,EGG_CHECK,HATCH_CHECK,RINGING,MAINTENANCE,IDENTIFYING_PAIR",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "signsOfUse",
+      "fieldType": "UseSignType",
+      "fieldValues": "MUTES,SCRAPE,SCRAPE_FLATTENED,RECENT_SCRAPE,DOWN_FEATHERS,FEATHERS,PELLETS,MULTIPLE_SIGNS",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "nestingSubstrate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maintenanceDone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maintenanceRequired",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "sighting",
+      "otherEntityRelationshipName": "nestSiteOverview",
+      "relationshipName": "sighting",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201123093101",
+  "entityTableName": "nest_site_overview",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

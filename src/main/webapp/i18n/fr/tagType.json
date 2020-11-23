@@ -1,0 +1,10 @@
+{
+  "wildlifeApp": {
+    "TagType": {
+      "null": "",
+      "CHIP": "CHIP",
+      "BRACELET": "BRACELET",
+      "OTHER": "OTHER"
+    }
+  }
+}

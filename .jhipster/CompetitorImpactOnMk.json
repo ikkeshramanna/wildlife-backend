@@ -1,0 +1,34 @@
+{
+  "name": "CompetitorImpactOnMk",
+  "fields": [
+    {
+      "fieldName": "impact",
+      "fieldType": "ImpactOnMKType",
+      "fieldValues": "UNKNOWN,BREEDING_MALE_MK_DELAYED_ENTERING_NEST,BREEDING_FEMALE_MK_DELAYED_ENTERING_NEST,BREEDING_MALE_MK_DELAYED_LEAVING_NEST,BREEDING_FEMALE_MK_DELAYED_LEAVING_NEST,MK_CANT_ACCESS_NEST,MK_CHASING_COMPETITOR,BREEDING_MALE_MK_CHASING_COMPETITOR,BREEDING_FEMALE_MK_CHASING_COMPETITOR,MK_BREEDING_PAIR_CHASING_COMPETITOR,MK_FIGHTING_COMPETITOR,BREEDING_MALE_MK_FIGHTING_COMPETITOR,BREEDING_FEMALE_MK_FIGHTING_COMPETITOR,NEST_SITE_OCCUPIED",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "competitors",
+      "otherEntityRelationshipName": "competitorImpactOnMk",
+      "relationshipName": "competitors",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201123092801",
+  "entityTableName": "competitor_impact_on_mk",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

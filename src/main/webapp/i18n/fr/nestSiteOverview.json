@@ -1,0 +1,29 @@
+{
+  "wildlifeApp": {
+    "nestSiteOverview": {
+      "home": {
+        "title": "NestSiteOverviews",
+        "createLabel": "Créer un nouveau Nest Site Overview",
+        "createOrEditLabel": "Créer ou éditer un Nest Site Overview",
+        "notFound": "Aucun Nest Site Overview trouvé"
+      },
+      "created": "Un nouveau Nest Site Overview a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Nest Site Overview avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Nest Site Overview avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Nest Site Overview {{ id }} ?"
+      },
+      "detail": {
+        "title": "Nest Site Overview"
+      },
+      "numberPeople": "Number People",
+      "purposeOfVisit": "Purpose Of Visit",
+      "signsOfUse": "Signs Of Use",
+      "nestingSubstrate": "Nesting Substrate",
+      "maintenanceDone": "Maintenance Done",
+      "maintenanceRequired": "Maintenance Required",
+      "comments": "Comments",
+      "sighting": "Sighting"
+    }
+  }
+}

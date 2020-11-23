@@ -1,0 +1,303 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-sighting-heading" jhiTranslate="wildlifeApp.sighting.home.createOrEditLabel">Create or edit a Sighting</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.nestSite" for="field_nestSite">Nest Site</label>
+                    <select class="form-control" name="nestSite" formControlName="nestSite" id="field_nestSite">
+                        <option value="BAMBOUS_VIRIEUX_3">{{ 'wildlifeApp.NestSiteType.BAMBOUS_VIRIEUX_3' | translate }}</option>
+                        <option value="CAMIZARD_CHARIZARD_CLIFF">{{ 'wildlifeApp.NestSiteType.CAMIZARD_CHARIZARD_CLIFF' | translate }}</option>
+                        <option value="CHAMPAGNE_CLIFF">{{ 'wildlifeApp.NestSiteType.CHAMPAGNE_CLIFF' | translate }}</option>
+                        <option value="CHIMNEY_CLIFF">{{ 'wildlifeApp.NestSiteType.CHIMNEY_CLIFF' | translate }}</option>
+                        <option value="DOMAINE_DE_LETOILE_2">{{ 'wildlifeApp.NestSiteType.DOMAINE_DE_LETOILE_2' | translate }}</option>
+                        <option value="DOMAINE_DE_LETOILE_3">{{ 'wildlifeApp.NestSiteType.DOMAINE_DE_LETOILE_3' | translate }}</option>
+                        <option value="DOMAINE_DE_LETOILE_4">{{ 'wildlifeApp.NestSiteType.DOMAINE_DE_LETOILE_4' | translate }}</option>
+                        <option value="DOMAINE_DE_LETOILE_5">{{ 'wildlifeApp.NestSiteType.DOMAINE_DE_LETOILE_5' | translate }}</option>
+                        <option value="DOMAINE_DE_LETOILE_8">{{ 'wildlifeApp.NestSiteType.DOMAINE_DE_LETOILE_8' | translate }}</option>
+                        <option value="DOMAINE_DE_LETOILE_9">{{ 'wildlifeApp.NestSiteType.DOMAINE_DE_LETOILE_9' | translate }}</option>
+                        <option value="DOMAINE_DU_CHASSEUR_5">{{ 'wildlifeApp.NestSiteType.DOMAINE_DU_CHASSEUR_5' | translate }}</option>
+                        <option value="DOMAINE_DU_CHASSEUR_7">{{ 'wildlifeApp.NestSiteType.DOMAINE_DU_CHASSEUR_7' | translate }}</option>
+                        <option value="DOMAINE_DU_CHASSEUR_8">{{ 'wildlifeApp.NestSiteType.DOMAINE_DU_CHASSEUR_8' | translate }}</option>
+                        <option value="DOMAINE_DU_CHASSEUR_CABIN">{{ 'wildlifeApp.NestSiteType.DOMAINE_DU_CHASSEUR_CABIN' | translate }}</option>
+                        <option value="DOMAINE_DU_CHASSEUR_CAR_PARK">{{ 'wildlifeApp.NestSiteType.DOMAINE_DU_CHASSEUR_CAR_PARK' | translate }}</option>
+                        <option value="DOMAINE_DU_CHASSEUR_OFFICE">{{ 'wildlifeApp.NestSiteType.DOMAINE_DU_CHASSEUR_OFFICE' | translate }}</option>
+                        <option value="DOMAINE_DU_CHASSEUR_PLASTIC">{{ 'wildlifeApp.NestSiteType.DOMAINE_DU_CHASSEUR_PLASTIC' | translate }}</option>
+                        <option value="EAST_ROCK">{{ 'wildlifeApp.NestSiteType.EAST_ROCK' | translate }}</option>
+                        <option value="FERNEY_1">{{ 'wildlifeApp.NestSiteType.FERNEY_1' | translate }}</option>
+                        <option value="FERNEY_10">{{ 'wildlifeApp.NestSiteType.FERNEY_10' | translate }}</option>
+                        <option value="FERNEY_11">{{ 'wildlifeApp.NestSiteType.FERNEY_11' | translate }}</option>
+                        <option value="FERNEY_12">{{ 'wildlifeApp.NestSiteType.FERNEY_12' | translate }}</option>
+                        <option value="FERNEY_13">{{ 'wildlifeApp.NestSiteType.FERNEY_13' | translate }}</option>
+                        <option value="FERNEY_14">{{ 'wildlifeApp.NestSiteType.FERNEY_14' | translate }}</option>
+                        <option value="FERNEY_2A">{{ 'wildlifeApp.NestSiteType.FERNEY_2A' | translate }}</option>
+                        <option value="FERNEY_2C">{{ 'wildlifeApp.NestSiteType.FERNEY_2C' | translate }}</option>
+                        <option value="FERNEY_3">{{ 'wildlifeApp.NestSiteType.FERNEY_3' | translate }}</option>
+                        <option value="FERNEY_4">{{ 'wildlifeApp.NestSiteType.FERNEY_4' | translate }}</option>
+                        <option value="FERNEY_5">{{ 'wildlifeApp.NestSiteType.FERNEY_5' | translate }}</option>
+                        <option value="FERNEY_6">{{ 'wildlifeApp.NestSiteType.FERNEY_6' | translate }}</option>
+                        <option value="FERNEY_7">{{ 'wildlifeApp.NestSiteType.FERNEY_7' | translate }}</option>
+                        <option value="FERNEY_8">{{ 'wildlifeApp.NestSiteType.FERNEY_8' | translate }}</option>
+                        <option value="FERNEY_9">{{ 'wildlifeApp.NestSiteType.FERNEY_9' | translate }}</option>
+                        <option value="FERNEY_CLIFF">{{ 'wildlifeApp.NestSiteType.FERNEY_CLIFF' | translate }}</option>
+                        <option value="FERNEY_DUPONT">{{ 'wildlifeApp.NestSiteType.FERNEY_DUPONT' | translate }}</option>
+                        <option value="FERNEY_ENCLOSURE">{{ 'wildlifeApp.NestSiteType.FERNEY_ENCLOSURE' | translate }}</option>
+                        <option value="FERNEY_INGAM">{{ 'wildlifeApp.NestSiteType.FERNEY_INGAM' | translate }}</option>
+                        <option value="FERNEY_MIDDLE">{{ 'wildlifeApp.NestSiteType.FERNEY_MIDDLE' | translate }}</option>
+                        <option value="FERNEY_REDUIT">{{ 'wildlifeApp.NestSiteType.FERNEY_REDUIT' | translate }}</option>
+                        <option value="LE_VALLON_13">{{ 'wildlifeApp.NestSiteType.LE_VALLON_13' | translate }}</option>
+                        <option value="LE_VALLON_6">{{ 'wildlifeApp.NestSiteType.LE_VALLON_6' | translate }}</option>
+                        <option value="MAURITANIA">{{ 'wildlifeApp.NestSiteType.MAURITANIA' | translate }}</option>
+                        <option value="MOUNT_CAMIZARD_1A">{{ 'wildlifeApp.NestSiteType.MOUNT_CAMIZARD_1A' | translate }}</option>
+                        <option value="MOUNT_CAMIZARD_2A">{{ 'wildlifeApp.NestSiteType.MOUNT_CAMIZARD_2A' | translate }}</option>
+                        <option value="MOUNT_CAMIZARD_2B">{{ 'wildlifeApp.NestSiteType.MOUNT_CAMIZARD_2B' | translate }}</option>
+                        <option value="MOUNT_CAMIZARD_4">{{ 'wildlifeApp.NestSiteType.MOUNT_CAMIZARD_4' | translate }}</option>
+                        <option value="MOUNT_CAMIZARD_5">{{ 'wildlifeApp.NestSiteType.MOUNT_CAMIZARD_5' | translate }}</option>
+                        <option value="NEW_HOPE">{{ 'wildlifeApp.NestSiteType.NEW_HOPE' | translate }}</option>
+                        <option value="OWENS_HOUSE">{{ 'wildlifeApp.NestSiteType.OWENS_HOUSE' | translate }}</option>
+                        <option value="PETIT_FOND_1">{{ 'wildlifeApp.NestSiteType.PETIT_FOND_1' | translate }}</option>
+                        <option value="PETIT_FOND_2">{{ 'wildlifeApp.NestSiteType.PETIT_FOND_2' | translate }}</option>
+                        <option value="PETIT_PARC">{{ 'wildlifeApp.NestSiteType.PETIT_PARC' | translate }}</option>
+                        <option value="POWER_STATION_CLIFF">{{ 'wildlifeApp.NestSiteType.POWER_STATION_CLIFF' | translate }}</option>
+                        <option value="RICHE_EN_EAU_11">{{ 'wildlifeApp.NestSiteType.RICHE_EN_EAU_11' | translate }}</option>
+                        <option value="RICHE_EN_EAU_13">{{ 'wildlifeApp.NestSiteType.RICHE_EN_EAU_13' | translate }}</option>
+                        <option value="RICHE_EN_EAU_2">{{ 'wildlifeApp.NestSiteType.RICHE_EN_EAU_2' | translate }}</option>
+                        <option value="RICHE_EN_EAU_3">{{ 'wildlifeApp.NestSiteType.RICHE_EN_EAU_3' | translate }}</option>
+                        <option value="RICHE_EN_EAU_4">{{ 'wildlifeApp.NestSiteType.RICHE_EN_EAU_4' | translate }}</option>
+                        <option value="RICHE_EN_EAU_9">{{ 'wildlifeApp.NestSiteType.RICHE_EN_EAU_9' | translate }}</option>
+                        <option value="UNDETECTED">{{ 'wildlifeApp.NestSiteType.UNDETECTED' | translate }}</option>
+                        <option value="VALLEE_DE_LEST">{{ 'wildlifeApp.NestSiteType.VALLEE_DE_LEST' | translate }}</option>
+                        <option value="YLANG_CHASSE">{{ 'wildlifeApp.NestSiteType.YLANG_CHASSE' | translate }}</option>
+                        <option value="YLANG_FOREST">{{ 'wildlifeApp.NestSiteType.YLANG_FOREST' | translate }}</option>
+                        <option value="ISENDGAARD">{{ 'wildlifeApp.NestSiteType.ISENDGAARD' | translate }}</option>
+                        <option value="DRAGONS_VIEW">{{ 'wildlifeApp.NestSiteType.DRAGONS_VIEW' | translate }}</option>
+                        <option value="KOALA_CLIFF">{{ 'wildlifeApp.NestSiteType.KOALA_CLIFF' | translate }}</option>
+                        <option value="COPSHOP_CLIFF">{{ 'wildlifeApp.NestSiteType.COPSHOP_CLIFF' | translate }}</option>
+                        <option value="CAT_AND_MOUSE">{{ 'wildlifeApp.NestSiteType.CAT_AND_MOUSE' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('nestSite')!.invalid && (editForm.get('nestSite')!.dirty || editForm.get('nestSite')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nestSite')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.area" for="field_area">Area</label>
+                    <select class="form-control" name="area" formControlName="area" id="field_area">
+                        <option value="FERNEY">{{ 'wildlifeApp.AreaType.FERNEY' | translate }}</option>
+                        <option value="LE_VALLON">{{ 'wildlifeApp.AreaType.LE_VALLON' | translate }}</option>
+                        <option value="DOMAINE_DE_LETOILE">{{ 'wildlifeApp.AreaType.DOMAINE_DE_LETOILE' | translate }}</option>
+                        <option value="DOMAINE_DU_CHASSEUR">{{ 'wildlifeApp.AreaType.DOMAINE_DU_CHASSEUR' | translate }}</option>
+                        <option value="VALLEE_DE_LEST">{{ 'wildlifeApp.AreaType.VALLEE_DE_LEST' | translate }}</option>
+                        <option value="RICHE_EN_EAU">{{ 'wildlifeApp.AreaType.RICHE_EN_EAU' | translate }}</option>
+                        <option value="BAMBOUS_VIRIEUX">{{ 'wildlifeApp.AreaType.BAMBOUS_VIRIEUX' | translate }}</option>
+                        <option value="LION_MOUNTAIN">{{ 'wildlifeApp.AreaType.LION_MOUNTAIN' | translate }}</option>
+                        <option value="BAMBOUS_PINNACLE">{{ 'wildlifeApp.AreaType.BAMBOUS_PINNACLE' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('area')!.invalid && (editForm.get('area')!.dirty || editForm.get('area')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('area')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.nestType" for="field_nestType">Nest Type</label>
+                    <select class="form-control" name="nestType" formControlName="nestType" id="field_nestType">
+                        <option value="WOODBOX">{{ 'wildlifeApp.NestType.WOODBOX' | translate }}</option>
+                        <option value="WHITE_RP_BOX">{{ 'wildlifeApp.NestType.WHITE_RP_BOX' | translate }}</option>
+                        <option value="BLACK_RP_BOX">{{ 'wildlifeApp.NestType.BLACK_RP_BOX' | translate }}</option>
+                        <option value="PVC_BOX">{{ 'wildlifeApp.NestType.PVC_BOX' | translate }}</option>
+                        <option value="CLIFF">{{ 'wildlifeApp.NestType.CLIFF' | translate }}</option>
+                        <option value="TREE_CAVITY">{{ 'wildlifeApp.NestType.TREE_CAVITY' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.year" for="field_year">Year</label>
+                    <input type="number" class="form-control" name="year" id="field_year"
+                           formControlName="year"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.month" for="field_month">Month</label>
+                    <input type="number" class="form-control" name="month" id="field_month"
+                           formControlName="month"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.date" for="field_date">Date</label>
+                    <div class="input-group">
+                        <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker #dateDp="ngbDatepicker" formControlName="date"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.observer" for="field_observer">Observer</label>
+                    <input type="text" class="form-control" name="observer" id="field_observer"
+                           formControlName="observer"/>
+                    <div *ngIf="editForm.get('observer')!.invalid && (editForm.get('observer')!.dirty || editForm.get('observer')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('observer')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.gpsLatitude" for="field_gpsLatitude">Gps Latitude</label>
+                    <input type="text" class="form-control" name="gpsLatitude" id="field_gpsLatitude"
+                           formControlName="gpsLatitude"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.gpsCoordinate" for="field_gpsCoordinate">Gps Coordinate</label>
+                    <input type="text" class="form-control" name="gpsCoordinate" id="field_gpsCoordinate"
+                           formControlName="gpsCoordinate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.locationName" for="field_locationName">Location Name</label>
+                    <input type="text" class="form-control" name="locationName" id="field_locationName"
+                           formControlName="locationName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.addDate" for="field_addDate">Add Date</label>
+                    <div class="input-group">
+                        <input id="field_addDate" type="text" class="form-control" name="addDate" ngbDatepicker #addDateDp="ngbDatepicker" formControlName="addDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="addDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('addDate')!.invalid && (editForm.get('addDate')!.dirty || editForm.get('addDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('addDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.updateDate" for="field_updateDate">Update Date</label>
+                    <div class="input-group">
+                        <input id="field_updateDate" type="text" class="form-control" name="updateDate" ngbDatepicker #updateDateDp="ngbDatepicker" formControlName="updateDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="updateDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('updateDate')!.invalid && (editForm.get('updateDate')!.dirty || editForm.get('updateDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('updateDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.birdsIdentified" for="field_birdsIdentified">Birds Identified</label>
+                    <select class="form-control" id="field_birdsIdentified" name="birdsIdentified" formControlName="birdsIdentified">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="birdsIdentifiedOption.id === editForm.get('birdsIdentified')!.value?.id ? editForm.get('birdsIdentified')!.value : birdsIdentifiedOption" *ngFor="let birdsIdentifiedOption of birdsidentifieds; trackBy: trackById">{{ birdsIdentifiedOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.eggsAndChick" for="field_eggsAndChick">Eggs And Chick</label>
+                    <select class="form-control" id="field_eggsAndChick" name="eggsAndChick" formControlName="eggsAndChick">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="eggsAndChickOption.id === editForm.get('eggsAndChick')!.value?.id ? editForm.get('eggsAndChick')!.value : eggsAndChickOption" *ngFor="let eggsAndChickOption of eggsandchicks; trackBy: trackById">{{ eggsAndChickOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.feedingObservation" for="field_feedingObservation">Feeding Observation</label>
+                    <select class="form-control" id="field_feedingObservation" name="feedingObservation" formControlName="feedingObservation">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="feedingObservationOption.id === editForm.get('feedingObservation')!.value?.id ? editForm.get('feedingObservation')!.value : feedingObservationOption" *ngFor="let feedingObservationOption of feedingobservations; trackBy: trackById">{{ feedingObservationOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.nestSiteOverview" for="field_nestSiteOverview">Nest Site Overview</label>
+                    <select class="form-control" id="field_nestSiteOverview" name="nestSiteOverview" formControlName="nestSiteOverview">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="nestSiteOverviewOption.id === editForm.get('nestSiteOverview')!.value?.id ? editForm.get('nestSiteOverview')!.value : nestSiteOverviewOption" *ngFor="let nestSiteOverviewOption of nestsiteoverviews; trackBy: trackById">{{ nestSiteOverviewOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.maintenance" for="field_maintenance">Maintenance</label>
+                    <select class="form-control" id="field_maintenance" name="maintenance" formControlName="maintenance">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="maintenanceOption.id === editForm.get('maintenance')!.value?.id ? editForm.get('maintenance')!.value : maintenanceOption" *ngFor="let maintenanceOption of maintenances; trackBy: trackById">{{ maintenanceOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.ringingMorphs" for="field_ringingMorphs">Ringing Morphs</label>
+                    <select class="form-control" id="field_ringingMorphs" name="ringingMorphs" formControlName="ringingMorphs">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ringingMorphsOption.id === editForm.get('ringingMorphs')!.value?.id ? editForm.get('ringingMorphs')!.value : ringingMorphsOption" *ngFor="let ringingMorphsOption of ringingmorphs; trackBy: trackById">{{ ringingMorphsOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.observationLocation" for="field_observationLocation">Observation Location</label>
+                    <select class="form-control" id="field_observationLocation" name="observationLocation" formControlName="observationLocation">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="observationLocationOption.id === editForm.get('observationLocation')!.value?.id ? editForm.get('observationLocation')!.value : observationLocationOption" *ngFor="let observationLocationOption of observationlocations; trackBy: trackById">{{ observationLocationOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.species" for="field_species">Species</label>
+                    <select class="form-control" id="field_species" name="species" formControlName="species">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="speciesOption.id === editForm.get('species')!.value?.id ? editForm.get('species')!.value : speciesOption" *ngFor="let speciesOption of species; trackBy: trackById">{{ speciesOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.employee" for="field_employee">Employee</label>
+                    <select class="form-control" id="field_employee" name="employee" formControlName="employee">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeeOption.id === editForm.get('employee')!.value?.id ? editForm.get('employee')!.value : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackById">{{ employeeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wildlifeApp.sighting.taggedAnimal" for="field_taggedAnimal">Tagged Animal</label>
+                    <select class="form-control" id="field_taggedAnimal" name="taggedAnimal" formControlName="taggedAnimal">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="taggedAnimalOption.id === editForm.get('taggedAnimal')!.value?.id ? editForm.get('taggedAnimal')!.value : taggedAnimalOption" *ngFor="let taggedAnimalOption of taggedanimals; trackBy: trackById">{{ taggedAnimalOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

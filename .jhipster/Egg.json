@@ -1,0 +1,38 @@
+{
+  "name": "Egg",
+  "fields": [
+    {
+      "fieldName": "eggNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "eggStatus",
+      "fieldType": "EggStatusType",
+      "fieldValues": "FERTILE,INFERTILE,UNKNOWN,DEAD_EMBRYO,DAMAGED,HATCHED"
+    },
+    {
+      "fieldName": "eggLayDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "eggsAndChick",
+      "otherEntityRelationshipName": "egg",
+      "relationshipName": "eggsAndChick",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201123092501",
+  "entityTableName": "egg",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

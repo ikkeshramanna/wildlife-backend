@@ -1,0 +1,63 @@
+{
+  "name": "EggsAndChick",
+  "fields": [
+    {
+      "fieldName": "clutchNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "eggsPresent",
+      "fieldType": "Boolean",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "chicksPresent",
+      "fieldType": "Boolean",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "photoTaken",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "egg",
+      "otherEntityRelationshipName": "eggsAndChick",
+      "relationshipName": "egg"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "chick",
+      "otherEntityRelationshipName": "eggsAndChick",
+      "relationshipName": "chick"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "sighting",
+      "otherEntityRelationshipName": "eggsAndChick",
+      "relationshipName": "sighting",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20201123092401",
+  "entityTableName": "eggs_and_chick",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

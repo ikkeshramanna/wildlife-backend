@@ -27,6 +27,126 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+                    <li>
+                        <a class="dropdown-item" routerLink="country" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.country">Country</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="employee" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.employee">Employee</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="sighting" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.sighting">Sighting</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="birds-identified" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.birdsIdentified">Birds Identified</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="bird-behaviour" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.birdBehaviour">Bird Behaviour</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="eggs-and-chick" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.eggsAndChick">Eggs And Chick</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="egg" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.egg">Egg</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="chick" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.chick">Chick</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="competitors" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.competitors">Competitors</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="competitor-impact-on-mk" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.competitorImpactOnMk">Competitor Impact On Mk</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="competitor-action" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.competitorAction">Competitor Action</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="feeding-observation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.feedingObservation">Feeding Observation</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="nest-site-overview" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.nestSiteOverview">Nest Site Overview</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="maintenance" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.maintenance">Maintenance</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="ringing-morphs" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.ringingMorphs">Ringing Morphs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="species-category" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.speciesCategory">Species Category</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="species" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.species">Species</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="tagged-animal" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.taggedAnimal">Tagged Animal</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="photo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.photo">Photo</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="observation-location" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.observationLocation">Observation Location</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

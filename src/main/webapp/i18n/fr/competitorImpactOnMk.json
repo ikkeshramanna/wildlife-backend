@@ -1,0 +1,23 @@
+{
+  "wildlifeApp": {
+    "competitorImpactOnMk": {
+      "home": {
+        "title": "CompetitorImpactOnMks",
+        "createLabel": "Créer un nouveau Competitor Impact On Mk",
+        "createOrEditLabel": "Créer ou éditer un Competitor Impact On Mk",
+        "notFound": "Aucun Competitor Impact On Mk trouvé"
+      },
+      "created": "Un nouveau Competitor Impact On Mk a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Competitor Impact On Mk avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Competitor Impact On Mk avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Competitor Impact On Mk {{ id }} ?"
+      },
+      "detail": {
+        "title": "Competitor Impact On Mk"
+      },
+      "impact": "Impact",
+      "competitors": "Competitors"
+    }
+  }
+}
